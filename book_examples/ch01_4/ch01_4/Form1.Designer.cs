@@ -48,6 +48,7 @@
             this.hScrollBar1.Name = "hScrollBar1";
             this.hScrollBar1.Size = new System.Drawing.Size(350, 17);
             this.hScrollBar1.TabIndex = 0;
+            this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
             // 
             // hScrollBar2
             // 
@@ -57,6 +58,7 @@
             this.hScrollBar2.Name = "hScrollBar2";
             this.hScrollBar2.Size = new System.Drawing.Size(350, 17);
             this.hScrollBar2.TabIndex = 1;
+            this.hScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar2_Scroll_1);
             // 
             // hScrollBar3
             // 
@@ -66,6 +68,7 @@
             this.hScrollBar3.Name = "hScrollBar3";
             this.hScrollBar3.Size = new System.Drawing.Size(350, 17);
             this.hScrollBar3.TabIndex = 2;
+            this.hScrollBar3.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar3_Scroll);
             // 
             // label1
             // 
@@ -136,7 +139,7 @@
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(75, 23);
             this.btnShow.TabIndex = 9;
-            this.btnShow.Text = "Show Color";
+            this.btnShow.Text = "Reset";
             this.btnShow.UseVisualStyleBackColor = true;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
