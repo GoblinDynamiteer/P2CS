@@ -31,6 +31,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblURL = new System.Windows.Forms.Label();
+            this.txtURL = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +44,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.btnOK, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnCancel, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(235, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(222, -1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -71,6 +73,24 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // lblURL
+            // 
+            this.lblURL.AutoSize = true;
+            this.lblURL.Location = new System.Drawing.Point(12, 13);
+            this.lblURL.Name = "lblURL";
+            this.lblURL.Size = new System.Drawing.Size(60, 13);
+            this.lblURL.TabIndex = 1;
+            this.lblURL.Text = "Enter URL:";
+            // 
+            // txtURL
+            // 
+            this.txtURL.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtURL.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllUrl;
+            this.txtURL.Location = new System.Drawing.Point(12, 29);
+            this.txtURL.Name = "txtURL";
+            this.txtURL.Size = new System.Drawing.Size(410, 20);
+            this.txtURL.TabIndex = 2;
+            // 
             // Navigate
             // 
             this.AcceptButton = this.btnOK;
@@ -78,6 +98,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(434, 111);
+            this.Controls.Add(this.txtURL);
+            this.Controls.Add(this.lblURL);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -88,6 +110,7 @@
             this.Text = "Navigate";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -96,5 +119,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblURL;
+        public System.Windows.Forms.TextBox txtURL;
     }
 }
