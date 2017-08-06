@@ -56,12 +56,14 @@
             this.ClientSize = new System.Drawing.Size(1248, 379);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnPasswordOK);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmPassword";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Password";
             this.TopMost = true;
-            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.ResumeLayout(false);
             this.PerformLayout();
 

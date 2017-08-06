@@ -85,6 +85,7 @@
             this.Controls.Add(this.btnAddMember);
             this.Name = "frmMain";
             this.Text = "TRF - Tigerälskarnas Riksförbund";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuitProgram);
             this.ResumeLayout(false);
             this.PerformLayout();
 

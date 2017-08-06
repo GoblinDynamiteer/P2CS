@@ -14,7 +14,11 @@ namespace trf
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPassword());
+            
+            frmPassword passwordWindow = new frmPassword();
+            passwordWindow.Show();
+
+            Application.Run();
         }
     }
 }
