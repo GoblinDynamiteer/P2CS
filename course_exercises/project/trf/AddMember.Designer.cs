@@ -1,6 +1,6 @@
 ﻿namespace trf
 {
-    partial class formAddMember
+    partial class frmAddMember
     {
         /// <summary>
         /// Required designer variable.
@@ -193,7 +193,7 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.Cancel);
             // 
-            // formAddMember
+            // frmAddMember
             // 
             this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -203,7 +203,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tableAddMember);
-            this.Name = "formAddMember";
+            this.Name = "frmAddMember";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

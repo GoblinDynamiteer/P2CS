@@ -10,18 +10,27 @@ using System.Windows.Forms;
 
 namespace trf
 {
-    public partial class Main : Form
+    public partial class frmMain : Form
     {
 
         List<Owner> memberList;
-        formAddMember formAddMember;
+        frmAddMember addMemberWindow;
+        frmPassword passwordWindow;
 
-        public Main()
+        public frmMain()
         {
             InitializeComponent();
+
+            CheckPassword();
+
             memberList = new List<Owner>();
             CreateMembers();
             PopulateMemberList();
+        }
+
+        void CheckPassword()
+        {
+
         }
 
         public void CreateMembers()
@@ -50,8 +59,8 @@ namespace trf
 
         void AddMemberFormShow(object sender, EventArgs e)
         {
-            formAddMember = new formAddMember(this);
-            formAddMember.Show();
+            addMemberWindow = new frmAddMember(this);
+            addMemberWindow.Show();
         }
 
         /* Uppdaterar listboxen med medlemmars namn */
@@ -74,6 +83,17 @@ namespace trf
                 listBoxMembers.Items.Add(owner.GetName());
             }
             
+        }
+
+        /* Anropas när en medlem markeras i medlemslistan */
+        private void listBoxMembersSelect(object sender, EventArgs e)
+        {
+            /* Sätter index för objektlista av medlemmar, kontroll görs att index
+             * ej ligger utanför liststorlek */
+            int index = listBoxMembers.SelectedIndex > memberList.Count - 1 ? 
+                0 : listBoxMembers.SelectedIndex;
+
+            lblName.Text = memberList[index].GetName();
         }
     }
 }

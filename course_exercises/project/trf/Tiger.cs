@@ -9,7 +9,6 @@ namespace trf
     class Tiger
     {
         string name, type;
-        DateTime birthDate;
 
         public Tiger(string name, string type)
         {

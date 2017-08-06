@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace trf
 {
-    public partial class formAddMember : Form
+    public partial class frmAddMember : Form
     {
-        Main mainForm;
+        frmMain mainForm;
 
-        public formAddMember(Main mainForm)
+        public frmAddMember(frmMain mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
@@ -27,6 +27,9 @@ namespace trf
 
         public void AddMemberFromForm(object sender, EventArgs e)
         {
+            /* Fixa röda labels för fel inmatning, tryparse för int etc */
+
+
             mainForm.CreateMember(
                     textBoxFirstName.Text,
                     textBoxLastName.Text,

@@ -1,6 +1,6 @@
 ﻿namespace trf
 {
-    partial class Main
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,8 @@
         {
             this.btnAddMember = new System.Windows.Forms.Button();
             this.listBoxMembers = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAddMember
@@ -48,21 +50,43 @@
             this.listBoxMembers.ItemHeight = 25;
             this.listBoxMembers.Items.AddRange(new object[] {
             "None"});
-            this.listBoxMembers.Location = new System.Drawing.Point(48, 35);
+            this.listBoxMembers.Location = new System.Drawing.Point(48, 110);
             this.listBoxMembers.Name = "listBoxMembers";
-            this.listBoxMembers.Size = new System.Drawing.Size(285, 404);
+            this.listBoxMembers.Size = new System.Drawing.Size(285, 329);
             this.listBoxMembers.TabIndex = 1;
+            this.listBoxMembers.SelectedIndexChanged += new System.EventHandler(this.listBoxMembersSelect);
             // 
-            // Main
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(43, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 25);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Medlemmar";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblName.Location = new System.Drawing.Point(378, 110);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(0, 25);
+            this.lblName.TabIndex = 3;
+            // 
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1275, 809);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.listBoxMembers);
             this.Controls.Add(this.btnAddMember);
-            this.Name = "Main";
+            this.Name = "frmMain";
             this.Text = "TRF - Tigerälskarnas Riksförbund";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -70,6 +94,8 @@
 
         private System.Windows.Forms.Button btnAddMember;
         private System.Windows.Forms.ListBox listBoxMembers;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblName;
     }
 }
 
