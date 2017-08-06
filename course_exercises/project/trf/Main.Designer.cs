@@ -33,20 +33,20 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(114, 229);
+            this.button1.Location = new System.Drawing.Point(52, 54);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(207, 92);
             this.button1.TabIndex = 0;
             this.button1.Text = "Lägg till medlem";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1275, 809);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "TRF - Tigerälskarnas Riksförbund";
             this.ResumeLayout(false);
 
