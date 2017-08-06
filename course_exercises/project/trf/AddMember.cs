@@ -18,6 +18,8 @@ namespace trf
         {
             InitializeComponent();
             this.mainForm = mainForm;
+
+            dateTimePickerBirth.MaxDate = DateTime.Today;
         }
 
         private void Cancel(object sender, EventArgs e)

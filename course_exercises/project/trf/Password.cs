@@ -12,7 +12,9 @@ namespace trf
 
         private void btnPasswordOK_Click(object sender, EventArgs e)
         {
-            Close();
+            frmMain mainWindow = new frmMain();
+            mainWindow.Show();
+            this.Visible = false;
         }
     }
 }

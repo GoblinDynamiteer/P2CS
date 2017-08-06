@@ -15,22 +15,14 @@ namespace trf
 
         List<Owner> memberList;
         frmAddMember addMemberWindow;
-        frmPassword passwordWindow;
 
         public frmMain()
         {
             InitializeComponent();
 
-            CheckPassword();
-
             memberList = new List<Owner>();
             CreateMembers();
             PopulateMemberList();
-        }
-
-        void CheckPassword()
-        {
-
         }
 
         public void CreateMembers()

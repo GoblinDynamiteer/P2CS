@@ -159,9 +159,11 @@
             // dateTimePickerBirth
             // 
             this.dateTimePickerBirth.Location = new System.Drawing.Point(186, 188);
+            this.dateTimePickerBirth.MaxDate = new System.DateTime(2017, 8, 6, 0, 0, 0, 0);
             this.dateTimePickerBirth.Name = "dateTimePickerBirth";
             this.dateTimePickerBirth.Size = new System.Drawing.Size(200, 31);
             this.dateTimePickerBirth.TabIndex = 4;
+            this.dateTimePickerBirth.Value = new System.DateTime(2017, 8, 6, 0, 0, 0, 0);
             // 
             // label6
             // 
