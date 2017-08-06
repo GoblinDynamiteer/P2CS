@@ -16,5 +16,15 @@ namespace trf
             mainWindow.Show();
             this.Visible = false;
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Program.QuitProgram();
+        }
+
+        private void frmPassword_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.QuitProgram();
+        }
     }
 }

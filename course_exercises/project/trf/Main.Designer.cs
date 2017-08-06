@@ -83,9 +83,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBoxMembers);
             this.Controls.Add(this.btnAddMember);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMain";
             this.Text = "TRF - Tigerälskarnas Riksförbund";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuitProgram);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -88,9 +88,9 @@ namespace trf
             lblName.Text = memberList[index].GetName();
         }
 
-        private void QuitProgram(object sender, FormClosingEventArgs e)
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            Program.QuitProgram();
         }
     }
 }

@@ -20,5 +20,10 @@ namespace trf
 
             Application.Run();
         }
+
+        public static void QuitProgram()
+        {
+            Application.Exit();
+        }
     }
 }
