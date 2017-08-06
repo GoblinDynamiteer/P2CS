@@ -9,6 +9,8 @@ namespace trf
         /// The main entry point for the application.
         /// </summary>
 
+        public static string name = "TRF - Tigerälskarnas RiksFörbund!";
+
         [STAThread]
         static void Main()
         {

@@ -1,23 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace trf
 {
     public partial class frmAddMember : Form
     {
-        frmMain mainForm;
+        frmMain Main;
 
         public frmAddMember(frmMain mainForm)
         {
             InitializeComponent();
-            this.mainForm = mainForm;
+            this.Main = mainForm;
 
             dateTimePickerBirth.MaxDate = DateTime.Today;
         }
@@ -32,7 +25,7 @@ namespace trf
             /* Fixa röda labels för fel inmatning, tryparse för int etc */
 
 
-            mainForm.CreateMember(
+            Main.CreateMember(
                     textBoxFirstName.Text,
                     textBoxLastName.Text,
                     dateTimePickerBirth.Value,
@@ -42,7 +35,7 @@ namespace trf
                     "Sweden"
                 );
 
-            mainForm.PopulateMemberList();
+            Main.PopulateMemberListBox();
             Close();
         }
     }

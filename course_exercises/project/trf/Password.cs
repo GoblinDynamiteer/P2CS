@@ -8,10 +8,13 @@ namespace trf
         public frmPassword()
         {
             InitializeComponent();
+            this.Text = Program.name;
+
         }
 
         private void btnPasswordOK_Click(object sender, EventArgs e)
         {
+            /* Bygg check för lösenord */
             frmMain mainWindow = new frmMain();
             mainWindow.Show();
             this.Visible = false;

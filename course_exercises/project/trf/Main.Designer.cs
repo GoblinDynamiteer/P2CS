@@ -32,6 +32,7 @@
             this.listBoxMembers = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.btnRemoveMember = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddMember
@@ -49,7 +50,7 @@
             this.listBoxMembers.FormattingEnabled = true;
             this.listBoxMembers.ItemHeight = 25;
             this.listBoxMembers.Items.AddRange(new object[] {
-            "None"});
+            "-"});
             this.listBoxMembers.Location = new System.Drawing.Point(48, 110);
             this.listBoxMembers.Name = "listBoxMembers";
             this.listBoxMembers.Size = new System.Drawing.Size(285, 329);
@@ -74,18 +75,28 @@
             this.lblName.Size = new System.Drawing.Size(0, 25);
             this.lblName.TabIndex = 3;
             // 
+            // btnRemoveMember
+            // 
+            this.btnRemoveMember.Location = new System.Drawing.Point(48, 542);
+            this.btnRemoveMember.Name = "btnRemoveMember";
+            this.btnRemoveMember.Size = new System.Drawing.Size(285, 62);
+            this.btnRemoveMember.TabIndex = 4;
+            this.btnRemoveMember.Text = "Radera medlem";
+            this.btnRemoveMember.UseVisualStyleBackColor = true;
+            this.btnRemoveMember.Click += new System.EventHandler(this.btnRemoveMember_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1275, 809);
+            this.Controls.Add(this.btnRemoveMember);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBoxMembers);
             this.Controls.Add(this.btnAddMember);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMain";
-            this.Text = "TRF - Tigerälskarnas Riksförbund";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,6 +109,7 @@
         private System.Windows.Forms.ListBox listBoxMembers;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnRemoveMember;
     }
 }
 

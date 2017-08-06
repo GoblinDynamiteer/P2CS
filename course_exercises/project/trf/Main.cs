@@ -19,10 +19,13 @@ namespace trf
         public frmMain()
         {
             InitializeComponent();
+            this.Text = Program.name;
 
             memberList = new List<Owner>();
+
             CreateMembers();
-            PopulateMemberList();
+            PopulateMemberListBox();
+            btnRemoveMember.Enabled = false;
         }
 
         public void CreateMembers()
@@ -56,7 +59,7 @@ namespace trf
         }
 
         /* Uppdaterar listboxen med medlemmars namn */
-        public void PopulateMemberList()
+        public void PopulateMemberListBox()
         {
             /* Rensar listboxen */
             listBoxMembers.Items.Clear();
@@ -65,6 +68,8 @@ namespace trf
             if (!memberList.Any())
             {
                 listBoxMembers.Items.Add("Inga medlemmar");
+
+                btnRemoveMember.Enabled = false;
                 return; // Avslutar metoden
             }
                 
@@ -80,17 +85,34 @@ namespace trf
         /* Anropas när en medlem markeras i medlemslistan */
         private void listBoxMembersSelect(object sender, EventArgs e)
         {
-            /* Sätter index för objektlista av medlemmar, kontroll görs att index
-             * ej ligger utanför liststorlek */
-            int index = listBoxMembers.SelectedIndex > memberList.Count - 1 ? 
-                0 : listBoxMembers.SelectedIndex;
+            if (memberList.Any() && listBoxMembers.SelectedIndex <= memberList.Count - 1)
+            {
+                btnRemoveMember.Enabled = true;
+                int index = listBoxMembers.SelectedIndex;
 
-            lblName.Text = memberList[index].GetName();
+                /* Bygg metod för att visa all data? */
+                lblName.Text = memberList[index].GetName();
+            }
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             Program.QuitProgram();
+        }
+
+        private void btnRemoveMember_Click(object sender, EventArgs e)
+        {
+            int index = listBoxMembers.SelectedIndex;
+            DialogResult result = MessageBox.Show(
+                "Vill du verkligen radera medlemmen " + memberList[index].GetName() + "?", 
+                "Radera Medlem", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                memberList.RemoveAt(index);
+                PopulateMemberListBox();
+            }
+
         }
     }
 }
