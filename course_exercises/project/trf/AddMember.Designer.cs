@@ -1,6 +1,6 @@
 ﻿namespace trf
 {
-    partial class AddUser
+    partial class formAddMember
     {
         /// <summary>
         /// Required designer variable.
@@ -30,19 +30,19 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.tableAddMember = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxLastName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxStreet = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxZipCode = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxCity = new System.Windows.Forms.TextBox();
+            this.dateTimePickerBirth = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.tableAddMember.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,17 +60,17 @@
             this.tableAddMember.ColumnCount = 2;
             this.tableAddMember.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableAddMember.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableAddMember.Controls.Add(this.textBox2, 1, 1);
+            this.tableAddMember.Controls.Add(this.textBoxLastName, 1, 1);
             this.tableAddMember.Controls.Add(this.label2, 0, 1);
             this.tableAddMember.Controls.Add(this.label1, 0, 0);
-            this.tableAddMember.Controls.Add(this.textBox1, 1, 0);
+            this.tableAddMember.Controls.Add(this.textBoxFirstName, 1, 0);
             this.tableAddMember.Controls.Add(this.label3, 0, 2);
-            this.tableAddMember.Controls.Add(this.textBox3, 1, 2);
+            this.tableAddMember.Controls.Add(this.textBoxStreet, 1, 2);
             this.tableAddMember.Controls.Add(this.label4, 0, 3);
-            this.tableAddMember.Controls.Add(this.textBox4, 1, 3);
+            this.tableAddMember.Controls.Add(this.textBoxZipCode, 1, 3);
             this.tableAddMember.Controls.Add(this.label5, 0, 4);
-            this.tableAddMember.Controls.Add(this.textBox5, 1, 4);
-            this.tableAddMember.Controls.Add(this.dateTimePicker1, 1, 5);
+            this.tableAddMember.Controls.Add(this.textBoxCity, 1, 4);
+            this.tableAddMember.Controls.Add(this.dateTimePickerBirth, 1, 5);
             this.tableAddMember.Controls.Add(this.label6, 0, 5);
             this.tableAddMember.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
             this.tableAddMember.Location = new System.Drawing.Point(13, 17);
@@ -82,15 +82,15 @@
             this.tableAddMember.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableAddMember.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableAddMember.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableAddMember.Size = new System.Drawing.Size(612, 245);
+            this.tableAddMember.Size = new System.Drawing.Size(612, 294);
             this.tableAddMember.TabIndex = 1;
             // 
-            // textBox1
+            // textBoxLastName
             // 
-            this.textBox1.Location = new System.Drawing.Point(186, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(423, 31);
-            this.textBox1.TabIndex = 1;
+            this.textBoxLastName.Location = new System.Drawing.Point(186, 40);
+            this.textBoxLastName.Name = "textBoxLastName";
+            this.textBoxLastName.Size = new System.Drawing.Size(423, 31);
+            this.textBoxLastName.TabIndex = 3;
             // 
             // label2
             // 
@@ -101,12 +101,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Efternamn";
             // 
-            // textBox2
+            // textBoxFirstName
             // 
-            this.textBox2.Location = new System.Drawing.Point(186, 40);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(423, 31);
-            this.textBox2.TabIndex = 3;
+            this.textBoxFirstName.Location = new System.Drawing.Point(186, 3);
+            this.textBoxFirstName.Name = "textBoxFirstName";
+            this.textBoxFirstName.Size = new System.Drawing.Size(423, 31);
+            this.textBoxFirstName.TabIndex = 1;
             // 
             // label3
             // 
@@ -117,12 +117,12 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Gata";
             // 
-            // textBox3
+            // textBoxStreet
             // 
-            this.textBox3.Location = new System.Drawing.Point(186, 77);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(423, 31);
-            this.textBox3.TabIndex = 3;
+            this.textBoxStreet.Location = new System.Drawing.Point(186, 77);
+            this.textBoxStreet.Name = "textBoxStreet";
+            this.textBoxStreet.Size = new System.Drawing.Size(423, 31);
+            this.textBoxStreet.TabIndex = 3;
             // 
             // label4
             // 
@@ -133,12 +133,12 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Postnummer";
             // 
-            // textBox4
+            // textBoxZipCode
             // 
-            this.textBox4.Location = new System.Drawing.Point(186, 114);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(423, 31);
-            this.textBox4.TabIndex = 3;
+            this.textBoxZipCode.Location = new System.Drawing.Point(186, 114);
+            this.textBoxZipCode.Name = "textBoxZipCode";
+            this.textBoxZipCode.Size = new System.Drawing.Size(423, 31);
+            this.textBoxZipCode.TabIndex = 3;
             // 
             // label5
             // 
@@ -149,12 +149,19 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Ort";
             // 
-            // textBox5
+            // textBoxCity
             // 
-            this.textBox5.Location = new System.Drawing.Point(186, 151);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(423, 31);
-            this.textBox5.TabIndex = 3;
+            this.textBoxCity.Location = new System.Drawing.Point(186, 151);
+            this.textBoxCity.Name = "textBoxCity";
+            this.textBoxCity.Size = new System.Drawing.Size(423, 31);
+            this.textBoxCity.TabIndex = 3;
+            // 
+            // dateTimePickerBirth
+            // 
+            this.dateTimePickerBirth.Location = new System.Drawing.Point(186, 188);
+            this.dateTimePickerBirth.Name = "dateTimePickerBirth";
+            this.dateTimePickerBirth.Size = new System.Drawing.Size(200, 31);
+            this.dateTimePickerBirth.TabIndex = 4;
             // 
             // label6
             // 
@@ -165,43 +172,43 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Födelsedatum";
             // 
-            // dateTimePicker1
+            // btnAdd
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(186, 188);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 31);
-            this.dateTimePicker1.TabIndex = 4;
+            this.btnAdd.Location = new System.Drawing.Point(304, 336);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(158, 75);
+            this.btnAdd.TabIndex = 2;
+            this.btnAdd.Text = "Lägg till";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.AddMemberFromForm);
             // 
-            // button1
+            // btnCancel
             // 
-            this.button1.Location = new System.Drawing.Point(303, 306);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 75);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Lägg till";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(468, 336);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(158, 75);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Avbryt";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.Cancel);
             // 
-            // button2
+            // formAddMember
             // 
-            this.button2.Location = new System.Drawing.Point(467, 306);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 75);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Avbryt";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // AddUser
-            // 
+            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 424);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(686, 627);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tableAddMember);
-            this.Name = "AddUser";
+            this.Name = "formAddMember";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lägg till ny medlem";
+            this.TopMost = true;
             this.tableAddMember.ResumeLayout(false);
             this.tableAddMember.PerformLayout();
             this.ResumeLayout(false);
@@ -212,18 +219,18 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableAddMember;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxLastName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxFirstName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxStreet;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxZipCode;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBoxCity;
+        private System.Windows.Forms.DateTimePicker dateTimePickerBirth;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

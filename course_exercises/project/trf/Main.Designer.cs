@@ -28,24 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddMember = new System.Windows.Forms.Button();
+            this.listBoxMembers = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAddMember
             // 
-            this.button1.Location = new System.Drawing.Point(52, 54);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(207, 92);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Lägg till medlem";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddMember.Location = new System.Drawing.Point(48, 461);
+            this.btnAddMember.Name = "btnAddMember";
+            this.btnAddMember.Size = new System.Drawing.Size(285, 64);
+            this.btnAddMember.TabIndex = 0;
+            this.btnAddMember.Text = "Lägg till ny medlem";
+            this.btnAddMember.UseVisualStyleBackColor = true;
+            this.btnAddMember.Click += new System.EventHandler(this.AddMemberFormShow);
+            // 
+            // listBoxMembers
+            // 
+            this.listBoxMembers.FormattingEnabled = true;
+            this.listBoxMembers.ItemHeight = 25;
+            this.listBoxMembers.Items.AddRange(new object[] {
+            "None"});
+            this.listBoxMembers.Location = new System.Drawing.Point(48, 35);
+            this.listBoxMembers.Name = "listBoxMembers";
+            this.listBoxMembers.Size = new System.Drawing.Size(285, 404);
+            this.listBoxMembers.TabIndex = 1;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1275, 809);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.listBoxMembers);
+            this.Controls.Add(this.btnAddMember);
             this.Name = "Main";
             this.Text = "TRF - Tigerälskarnas Riksförbund";
             this.ResumeLayout(false);
@@ -54,7 +68,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddMember;
+        private System.Windows.Forms.ListBox listBoxMembers;
     }
 }
 

@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUser.cs">
+    <Compile Include="AddMember.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddUser.Designer.cs">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <Compile Include="AddMember.Designer.cs">
+      <DependentUpon>AddMember.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -61,8 +61,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tiger.cs" />
-    <EmbeddedResource Include="AddUser.resx">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <EmbeddedResource Include="AddMember.resx">
+      <DependentUpon>AddMember.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
