@@ -9,7 +9,8 @@ namespace trf
         /// The main entry point for the application.
         /// </summary>
 
-        public static string name = "TRF - Tigerälskarnas RiksFörbund!";
+        public static string name = "TRF - Tigerälskarnas Riksförbund!";
+        public static Password pw = new Password(Password.GenerateRandomEncryptionKey());
 
         [STAThread]
         static void Main()
