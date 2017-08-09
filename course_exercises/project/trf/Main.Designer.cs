@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnAddMember = new System.Windows.Forms.Button();
-            this.listBoxMembers = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblName3 = new System.Windows.Forms.Label();
             this.btnRemoveMember = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,65 +46,24 @@
             this.tableAdapterManager = new trf.MembersDataSetTableAdapters.TableAdapterManager();
             this.lblName2 = new System.Windows.Forms.Label();
             this.tigersTableAdapter = new trf.MembersDataSetTableAdapters.TigersTableAdapter();
+            this.tigersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tigersListBox = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Street = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ZipCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tigersBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnAddMember
-            // 
-            this.btnAddMember.Location = new System.Drawing.Point(665, 416);
-            this.btnAddMember.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddMember.Name = "btnAddMember";
-            this.btnAddMember.Size = new System.Drawing.Size(142, 33);
-            this.btnAddMember.TabIndex = 0;
-            this.btnAddMember.Text = "Lägg till ny medlem";
-            this.btnAddMember.UseVisualStyleBackColor = true;
-            this.btnAddMember.Click += new System.EventHandler(this.AddMemberFormShow);
-            // 
-            // listBoxMembers
-            // 
-            this.listBoxMembers.FormattingEnabled = true;
-            this.listBoxMembers.Items.AddRange(new object[] {
-            "-"});
-            this.listBoxMembers.Location = new System.Drawing.Point(517, 411);
-            this.listBoxMembers.Margin = new System.Windows.Forms.Padding(2);
-            this.listBoxMembers.Name = "listBoxMembers";
-            this.listBoxMembers.Size = new System.Drawing.Size(144, 173);
-            this.listBoxMembers.TabIndex = 1;
-            this.listBoxMembers.SelectedIndexChanged += new System.EventHandler(this.listBoxMembersSelect);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 37);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Medlemmar";
-            // 
-            // lblName3
-            // 
-            this.lblName3.AutoSize = true;
-            this.lblName3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblName3.Location = new System.Drawing.Point(794, 595);
-            this.lblName3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblName3.Name = "lblName3";
-            this.lblName3.Size = new System.Drawing.Size(24, 13);
-            this.lblName3.TabIndex = 3;
-            this.lblName3.Text = "asd";
             // 
             // btnRemoveMember
             // 
-            this.btnRemoveMember.Location = new System.Drawing.Point(665, 453);
+            this.btnRemoveMember.Location = new System.Drawing.Point(16, 339);
             this.btnRemoveMember.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveMember.Name = "btnRemoveMember";
             this.btnRemoveMember.Size = new System.Drawing.Size(142, 32);
@@ -126,7 +81,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1082, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(676, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -192,33 +147,33 @@
             // 
             this.membersDataGridView.AllowUserToAddRows = false;
             this.membersDataGridView.AllowUserToDeleteRows = false;
+            this.membersDataGridView.AllowUserToResizeColumns = false;
+            this.membersDataGridView.AllowUserToResizeRows = false;
             this.membersDataGridView.AutoGenerateColumns = false;
             this.membersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.membersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.membersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.membersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.Street,
-            this.City,
-            this.ZipCode,
-            this.Country});
+            this.dataGridViewTextBoxColumn3});
             this.membersDataGridView.DataSource = this.membersBindingSource;
-            this.membersDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.membersDataGridView.GridColor = System.Drawing.SystemColors.Window;
-            this.membersDataGridView.Location = new System.Drawing.Point(0, 24);
+            this.membersDataGridView.Location = new System.Drawing.Point(25, 50);
             this.membersDataGridView.MultiSelect = false;
             this.membersDataGridView.Name = "membersDataGridView";
             this.membersDataGridView.ReadOnly = true;
+            this.membersDataGridView.RowHeadersVisible = false;
             this.membersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.membersDataGridView.Size = new System.Drawing.Size(1082, 346);
+            this.membersDataGridView.Size = new System.Drawing.Size(231, 380);
             this.membersDataGridView.TabIndex = 8;
+            this.membersDataGridView.SelectionChanged += new System.EventHandler(this.membersDataGridView_SelectionChanged);
             // 
             // lblName1
             // 
             this.lblName1.AutoSize = true;
             this.lblName1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "FirstName", true));
-            this.lblName1.Location = new System.Drawing.Point(12, 416);
+            this.lblName1.Location = new System.Drawing.Point(13, 36);
             this.lblName1.Name = "lblName1";
             this.lblName1.Size = new System.Drawing.Size(35, 13);
             this.lblName1.TabIndex = 9;
@@ -239,7 +194,7 @@
             // 
             this.lblName2.AutoSize = true;
             this.lblName2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "LastName", true));
-            this.lblName2.Location = new System.Drawing.Point(83, 416);
+            this.lblName2.Location = new System.Drawing.Point(13, 56);
             this.lblName2.Name = "lblName2";
             this.lblName2.Size = new System.Drawing.Size(35, 13);
             this.lblName2.TabIndex = 10;
@@ -249,67 +204,77 @@
             // 
             this.tigersTableAdapter.ClearBeforeFill = true;
             // 
+            // tigersBindingSource
+            // 
+            this.tigersBindingSource.DataMember = "Tigers";
+            this.tigersBindingSource.DataSource = this.membersDataSet;
+            // 
+            // tigersListBox
+            // 
+            this.tigersListBox.DataSource = this.tigersBindingSource;
+            this.tigersListBox.DisplayMember = "Name";
+            this.tigersListBox.FormattingEnabled = true;
+            this.tigersListBox.Location = new System.Drawing.Point(16, 205);
+            this.tigersListBox.Name = "tigersListBox";
+            this.tigersListBox.Size = new System.Drawing.Size(88, 69);
+            this.tigersListBox.TabIndex = 10;
+            this.tigersListBox.ValueMember = "Id";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 189);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Tigrar";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.tigersListBox);
+            this.groupBox1.Controls.Add(this.lblName2);
+            this.groupBox1.Controls.Add(this.lblName1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.btnRemoveMember);
+            this.groupBox1.Location = new System.Drawing.Point(280, 41);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(368, 388);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Medlemsinformation";
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            this.Column1.Width = 22;
+            // 
             // dataGridViewTextBoxColumn2
             // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
             this.dataGridViewTextBoxColumn2.HeaderText = "Förnamn";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 73;
             // 
             // dataGridViewTextBoxColumn3
             // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn3.DataPropertyName = "LastName";
             this.dataGridViewTextBoxColumn3.HeaderText = "Efternamn";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 80;
-            // 
-            // Street
-            // 
-            this.Street.DataPropertyName = "Street";
-            this.Street.HeaderText = "Gata";
-            this.Street.Name = "Street";
-            this.Street.ReadOnly = true;
-            this.Street.Width = 55;
-            // 
-            // City
-            // 
-            this.City.DataPropertyName = "City";
-            this.City.HeaderText = "Stad";
-            this.City.Name = "City";
-            this.City.ReadOnly = true;
-            this.City.Width = 54;
-            // 
-            // ZipCode
-            // 
-            this.ZipCode.DataPropertyName = "ZipCode";
-            this.ZipCode.HeaderText = "Postnummer";
-            this.ZipCode.Name = "ZipCode";
-            this.ZipCode.ReadOnly = true;
-            this.ZipCode.Width = 90;
-            // 
-            // Country
-            // 
-            this.Country.DataPropertyName = "Country";
-            this.Country.HeaderText = "Land";
-            this.Country.Name = "Country";
-            this.Country.ReadOnly = true;
-            this.Country.Width = 56;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 782);
-            this.Controls.Add(this.lblName2);
-            this.Controls.Add(this.lblName1);
+            this.ClientSize = new System.Drawing.Size(676, 463);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.membersDataGridView);
-            this.Controls.Add(this.btnRemoveMember);
-            this.Controls.Add(this.lblName3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBoxMembers);
-            this.Controls.Add(this.btnAddMember);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
@@ -322,17 +287,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tigersBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAddMember;
-        private System.Windows.Forms.ListBox listBoxMembers;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblName3;
         private System.Windows.Forms.Button btnRemoveMember;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -350,12 +313,13 @@
         private System.Windows.Forms.Label lblName1;
         private System.Windows.Forms.Label lblName2;
         private MembersDataSetTableAdapters.TigersTableAdapter tigersTableAdapter;
+        private System.Windows.Forms.BindingSource tigersBindingSource;
+        private System.Windows.Forms.ListBox tigersListBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Street;
-        private System.Windows.Forms.DataGridViewTextBoxColumn City;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ZipCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Country;
     }
 }
 

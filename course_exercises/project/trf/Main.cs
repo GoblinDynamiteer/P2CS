@@ -13,113 +13,30 @@ namespace trf
     public partial class frmMain : Form
     {
 
-        List<Owner> memberList;
         frmAddMember addMemberWindow;
 
         public frmMain()
         {
             InitializeComponent();
             this.Text = Program.name;
-            memberList = new List<Owner>();
-
-            CreateMembers();
-            PopulateMemberListBox();
-            btnRemoveMember.Enabled = false;
+            btnRemoveMember.Enabled = true;
         }
 
-        public void CreateMembers()
+        int GetSelectedMemberID()
         {
-            DateTime birth = new DateTime(1983, 6, 19);
+            int id = 0;
 
-            CreateMember("John", "Karlsson", birth,
-                    "Storgatan 12B", "Motala", 59138, "Sweden");
-
-
-            CreateMember("Kalle", "Svensson", birth,
-                    "Litengatan 33", "Vadstena", 58131, "Sweden");
-
-
-            CreateMember("Anna", "Larsson", birth,
-                    "Vändgatan 12", "Stockholm", 12342, "Sweden");
-        }
-
-        public void CreateMember(string firstName, string lastName, 
-            DateTime birth, string street, string town, int zip, string country)
-        {
-            memberList.Add(
-                    new Owner(firstName, lastName, birth, street, town, zip, country)
-                );
-        }
-
-        void AddMemberFormShow(object sender, EventArgs e)
-        {
-            addMemberWindow = new frmAddMember(this);
-            addMemberWindow.Show();
-        }
-
-        /* Uppdaterar listboxen med medlemmars namn */
-        public void PopulateMemberListBox()
-        {
-            /* Rensar listboxen */
-            listBoxMembers.Items.Clear();
-
-            /* Om det inte finns några medlemmar */
-            if (!memberList.Any())
+            foreach (DataGridViewRow row in membersDataGridView.SelectedRows)
             {
-                listBoxMembers.Items.Add("Inga medlemmar");
-
-                btnRemoveMember.Enabled = false;
-                return; // Avslutar metoden
+                id = int.Parse(row.Cells[0].Value.ToString());
             }
-                
-            /* Skriver in för- och efternamn för varje medlem 
-             * till listboxen */
-            foreach (Owner owner in memberList)
-            {
-                listBoxMembers.Items.Add(owner.GetName());
-            }
-            
-        }
 
-        /* Anropas när en medlem markeras i medlemslistan */
-        private void listBoxMembersSelect(object sender, EventArgs e)
-        {
-            if (memberList.Any() && listBoxMembers.SelectedIndex <= memberList.Count - 1)
-            {
-                btnRemoveMember.Enabled = true;
-                int index = listBoxMembers.SelectedIndex;
-
-                /* Bygg metod för att visa all data? */
-                lblName3.Text = memberList[index].GetName();
-            }
+            return id;
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             Program.QuitProgram();
-        }
-
-        private void btnRemoveMember_Click(object sender, EventArgs e)
-        {
-            int index = listBoxMembers.SelectedIndex;
-            DialogResult result = MessageBox.Show(
-                "Vill du verkligen radera medlemmen " + memberList[index].GetName() + "?", 
-                "Radera Medlem", MessageBoxButtons.YesNo);
-
-            if (result == DialogResult.Yes)
-            {
-                memberList.RemoveAt(index);
-                PopulateMemberListBox();
-            }
-
-        }
-
-        private void membersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.membersBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.membersDataSet);
-
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -131,12 +48,35 @@ namespace trf
                 tigersTableAdapter.Fill(membersDataSet.Tigers);
             }
 
-            catch (Exception ex)
+            catch
             {
-
             }
-            
+
         }
 
+        private void membersDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            tigersTableAdapter.FillByOwnerID(membersDataSet.Tigers, GetSelectedMemberID());
+        }
+
+
+        private void btnRemoveMember_Click(object sender, EventArgs e)
+        {
+            int deleteID = GetSelectedMemberID();
+
+            for (int i = 0; i < membersDataSet.Members.Rows.Count; i++)
+            {
+                int id = int.Parse(membersDataSet.Members.Rows[i]["Id"].ToString());
+
+                if (id == deleteID)
+                {
+                    membersDataSet.Members.Rows[i].Delete();
+                    membersTableAdapter.Update(membersDataSet);
+                    //membersTableAdapter.Fill(membersDataSet.Members);
+                    break;
+                }
+            }
+
+        }
     }
 }

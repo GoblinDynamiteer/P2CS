@@ -77,7 +77,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MembersDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Owner.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -23,20 +23,6 @@ namespace trf
         public void AddMemberFromForm(object sender, EventArgs e)
         {
             /* Fixa röda labels för fel inmatning, tryparse för int etc */
-
-
-            Main.CreateMember(
-                    textBoxFirstName.Text,
-                    textBoxLastName.Text,
-                    dateTimePickerBirth.Value,
-                    textBoxStreet.Text,
-                    textBoxCity.Text,
-                    int.Parse(textBoxZipCode.Text),
-                    "Sweden"
-                );
-
-            Main.PopulateMemberListBox();
-            Close();
         }
     }
 }
