@@ -41,18 +41,18 @@
             this.membersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.membersDataSet = new trf.MembersDataSet();
             this.membersDataGridView = new System.Windows.Forms.DataGridView();
-            this.lblName1 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblName = new System.Windows.Forms.Label();
             this.membersTableAdapter = new trf.MembersDataSetTableAdapters.MembersTableAdapter();
             this.tableAdapterManager = new trf.MembersDataSetTableAdapters.TableAdapterManager();
-            this.lblName2 = new System.Windows.Forms.Label();
             this.tigersTableAdapter = new trf.MembersDataSetTableAdapters.TigersTableAdapter();
             this.tigersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tigersListBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblNumberOfMembers = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersDataSet)).BeginInit();
@@ -141,6 +141,7 @@
             // membersDataSet
             // 
             this.membersDataSet.DataSetName = "MembersDataSet";
+            this.membersDataSet.EnforceConstraints = false;
             this.membersDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // membersDataGridView
@@ -169,15 +170,39 @@
             this.membersDataGridView.TabIndex = 8;
             this.membersDataGridView.SelectionChanged += new System.EventHandler(this.membersDataGridView_SelectionChanged);
             // 
-            // lblName1
+            // Column1
             // 
-            this.lblName1.AutoSize = true;
-            this.lblName1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "FirstName", true));
-            this.lblName1.Location = new System.Drawing.Point(13, 36);
-            this.lblName1.Name = "lblName1";
-            this.lblName1.Size = new System.Drawing.Size(35, 13);
-            this.lblName1.TabIndex = 9;
-            this.lblName1.Text = "label2";
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            this.Column1.Width = 22;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Förnamn";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "LastName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Efternamn";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(13, 36);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.TabIndex = 9;
+            this.lblName.Text = "label2";
             // 
             // membersTableAdapter
             // 
@@ -189,16 +214,6 @@
             this.tableAdapterManager.MembersTableAdapter = this.membersTableAdapter;
             this.tableAdapterManager.TigersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = trf.MembersDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // lblName2
-            // 
-            this.lblName2.AutoSize = true;
-            this.lblName2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "LastName", true));
-            this.lblName2.Location = new System.Drawing.Point(13, 56);
-            this.lblName2.Name = "lblName2";
-            this.lblName2.Size = new System.Drawing.Size(35, 13);
-            this.lblName2.TabIndex = 10;
-            this.lblName2.Text = "label2";
             // 
             // tigersTableAdapter
             // 
@@ -232,8 +247,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tigersListBox);
-            this.groupBox1.Controls.Add(this.lblName2);
-            this.groupBox1.Controls.Add(this.lblName1);
+            this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnRemoveMember);
             this.groupBox1.Location = new System.Drawing.Point(280, 41);
@@ -243,36 +257,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Medlemsinformation";
             // 
-            // Column1
+            // lblNumberOfMembers
             // 
-            this.Column1.DataPropertyName = "Id";
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            this.Column1.Width = 22;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Förnamn";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "LastName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Efternamn";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.lblNumberOfMembers.AutoSize = true;
+            this.lblNumberOfMembers.Location = new System.Drawing.Point(25, 28);
+            this.lblNumberOfMembers.Name = "lblNumberOfMembers";
+            this.lblNumberOfMembers.Size = new System.Drawing.Size(35, 13);
+            this.lblNumberOfMembers.TabIndex = 13;
+            this.lblNumberOfMembers.Text = "label1";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 463);
+            this.Controls.Add(this.lblNumberOfMembers);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.membersDataGridView);
             this.Controls.Add(this.menuStrip1);
@@ -305,13 +304,9 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exporteraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoOmTigrarToolStripMenuItem;
-        private MembersDataSet membersDataSet;
-        private System.Windows.Forms.BindingSource membersBindingSource;
-        private MembersDataSetTableAdapters.MembersTableAdapter membersTableAdapter;
         private MembersDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView membersDataGridView;
-        private System.Windows.Forms.Label lblName1;
-        private System.Windows.Forms.Label lblName2;
+        private System.Windows.Forms.Label lblName;
         private MembersDataSetTableAdapters.TigersTableAdapter tigersTableAdapter;
         private System.Windows.Forms.BindingSource tigersBindingSource;
         private System.Windows.Forms.ListBox tigersListBox;
@@ -320,6 +315,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        public MembersDataSet membersDataSet;
+        public System.Windows.Forms.BindingSource membersBindingSource;
+        public MembersDataSetTableAdapters.MembersTableAdapter membersTableAdapter;
+        private System.Windows.Forms.Label lblNumberOfMembers;
     }
 }
 

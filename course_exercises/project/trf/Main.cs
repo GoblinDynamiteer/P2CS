@@ -14,15 +14,18 @@ namespace trf
     {
 
         frmAddMember addMemberWindow;
+        Member member;
 
         public frmMain()
         {
             InitializeComponent();
             this.Text = Program.name;
             btnRemoveMember.Enabled = true;
+            member = new Member(membersDataSet, membersTableAdapter);
+            UpdateMemberCountLabel();
         }
 
-        int GetSelectedMemberID()
+        public int GetSelectedMemberID()
         {
             int id = 0;
 
@@ -43,7 +46,6 @@ namespace trf
         {
             try
             {
-                membersTableAdapter.Insert("Kalle", "Anka", "Bogatan 12", 12345, "Sverige", "Solstad");
                 membersTableAdapter.Fill(membersDataSet.Members);
                 tigersTableAdapter.Fill(membersDataSet.Tigers);
             }
@@ -56,27 +58,27 @@ namespace trf
 
         private void membersDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            tigersTableAdapter.FillByOwnerID(membersDataSet.Tigers, GetSelectedMemberID());
+            int memberId = GetSelectedMemberID();
+
+            tigersTableAdapter.FillByOwnerID(
+                    membersDataSet.Tigers,
+                    memberId
+                );
+
+            lblName.Text = member.GetName(memberId);
         }
 
 
         private void btnRemoveMember_Click(object sender, EventArgs e)
         {
             int deleteID = GetSelectedMemberID();
+            member.RemoveByID(deleteID);
+            UpdateMemberCountLabel();
+        }
 
-            for (int i = 0; i < membersDataSet.Members.Rows.Count; i++)
-            {
-                int id = int.Parse(membersDataSet.Members.Rows[i]["Id"].ToString());
-
-                if (id == deleteID)
-                {
-                    membersDataSet.Members.Rows[i].Delete();
-                    membersTableAdapter.Update(membersDataSet);
-                    //membersTableAdapter.Fill(membersDataSet.Members);
-                    break;
-                }
-            }
-
+        private void UpdateMemberCountLabel()
+        {
+            lblNumberOfMembers.Text = string.Format("Medlemmar: {0}", member.Count());
         }
     }
 }
