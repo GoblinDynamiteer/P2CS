@@ -15,12 +15,16 @@ namespace trf
 
         List<Owner> memberList;
         frmAddMember addMemberWindow;
+        MembersDataSet dataSet;
+        MembersDataSetTableAdapters.MembersTableAdapter table;
 
         public frmMain()
         {
             InitializeComponent();
             this.Text = Program.name;
 
+            dataSet = new MembersDataSet();
+            table = new MembersDataSetTableAdapters.MembersTableAdapter();
             memberList = new List<Owner>();
 
             CreateMembers();
