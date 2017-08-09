@@ -53,6 +53,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblNumberOfMembers = new System.Windows.Forms.Label();
+            this.btnAddMember = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersDataSet)).BeginInit();
@@ -166,7 +167,7 @@
             this.membersDataGridView.ReadOnly = true;
             this.membersDataGridView.RowHeadersVisible = false;
             this.membersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.membersDataGridView.Size = new System.Drawing.Size(231, 380);
+            this.membersDataGridView.Size = new System.Drawing.Size(231, 335);
             this.membersDataGridView.TabIndex = 8;
             this.membersDataGridView.SelectionChanged += new System.EventHandler(this.membersDataGridView_SelectionChanged);
             // 
@@ -266,11 +267,22 @@
             this.lblNumberOfMembers.TabIndex = 13;
             this.lblNumberOfMembers.Text = "label1";
             // 
+            // btnAddMember
+            // 
+            this.btnAddMember.Location = new System.Drawing.Point(25, 405);
+            this.btnAddMember.Name = "btnAddMember";
+            this.btnAddMember.Size = new System.Drawing.Size(75, 23);
+            this.btnAddMember.TabIndex = 14;
+            this.btnAddMember.Text = "Ny Medlem";
+            this.btnAddMember.UseVisualStyleBackColor = true;
+            this.btnAddMember.Click += new System.EventHandler(this.btnAddMember_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 463);
+            this.Controls.Add(this.btnAddMember);
             this.Controls.Add(this.lblNumberOfMembers);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.membersDataGridView);
@@ -319,6 +331,7 @@
         public System.Windows.Forms.BindingSource membersBindingSource;
         public MembersDataSetTableAdapters.MembersTableAdapter membersTableAdapter;
         private System.Windows.Forms.Label lblNumberOfMembers;
+        private System.Windows.Forms.Button btnAddMember;
     }
 }
 

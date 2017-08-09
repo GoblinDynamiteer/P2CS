@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using trf.MembersDataSetTableAdapters;
+﻿using trf.MembersDataSetTableAdapters;
 
 namespace trf
 {
-    class Member
+    public class Member
     {
         MembersDataSet membersDataSet;
         MembersTableAdapter membersTableAdapter;
@@ -68,7 +63,7 @@ namespace trf
 
                 catch
                 {
-
+                    //BYGG
                 }
 
             }
@@ -76,7 +71,7 @@ namespace trf
 
         }
 
-        void Add(string firstName, string secondName, string street, 
+        public void Add(string firstName, string secondName, string street, 
                  string city, string country, int zipCode)
         {
             membersTableAdapter.Insert(
@@ -84,6 +79,7 @@ namespace trf
                     zipCode, country, city
                 );
 
+            membersTableAdapter.Fill(membersDataSet.Members);
             Update();
         }
 

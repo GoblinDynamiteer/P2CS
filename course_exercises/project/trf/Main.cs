@@ -14,7 +14,7 @@ namespace trf
     {
 
         frmAddMember addMemberWindow;
-        Member member;
+        public Member member;
 
         public frmMain()
         {
@@ -44,6 +44,7 @@ namespace trf
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+
             try
             {
                 membersTableAdapter.Fill(membersDataSet.Members);
@@ -79,6 +80,13 @@ namespace trf
         private void UpdateMemberCountLabel()
         {
             lblNumberOfMembers.Text = string.Format("Medlemmar: {0}", member.Count());
+        }
+
+        private void btnAddMember_Click(object sender, EventArgs e)
+        {
+            addMemberWindow = new frmAddMember(this);
+            addMemberWindow.Show();
+            
         }
     }
 }

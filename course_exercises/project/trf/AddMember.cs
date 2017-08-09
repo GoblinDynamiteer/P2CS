@@ -5,24 +5,30 @@ namespace trf
 {
     public partial class frmAddMember : Form
     {
-        frmMain Main;
 
-        public frmAddMember(frmMain mainForm)
+        frmMain frmMain;
+
+        public frmAddMember(frmMain frmMain)
         {
             InitializeComponent();
-            this.Main = mainForm;
-
-            dateTimePickerBirth.MaxDate = DateTime.Today;
+            this.frmMain = frmMain;
         }
 
-        private void Cancel(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        public void AddMemberFromForm(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            /* Fixa röda labels för fel inmatning, tryparse för int etc */
+            string firstName = textBoxFirstName.Text;
+            string lastName = textBoxLastName.Text;
+            string city = textBoxCity.Text;
+            string country = "FASD";
+            string street = textBoxStreet.Text;
+            int zipCode = int.Parse(textBoxZipCode.Text);
+
+            frmMain.member.Add(firstName, lastName, street, city, country, zipCode);
         }
     }
 }
