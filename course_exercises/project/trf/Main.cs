@@ -15,16 +15,11 @@ namespace trf
 
         List<Owner> memberList;
         frmAddMember addMemberWindow;
-        MembersDataSet dataSet;
-        MembersDataSetTableAdapters.MembersTableAdapter table;
 
         public frmMain()
         {
             InitializeComponent();
             this.Text = Program.name;
-
-            dataSet = new MembersDataSet();
-            table = new MembersDataSetTableAdapters.MembersTableAdapter();
             memberList = new List<Owner>();
 
             CreateMembers();
@@ -95,7 +90,7 @@ namespace trf
                 int index = listBoxMembers.SelectedIndex;
 
                 /* Bygg metod för att visa all data? */
-                lblName.Text = memberList[index].GetName();
+                lblName3.Text = memberList[index].GetName();
             }
         }
 
@@ -119,5 +114,18 @@ namespace trf
 
         }
 
+        private void membersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.membersBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.membersDataSet);
+
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'membersDataSet.Members' table. You can move, or remove it, as needed.
+            this.membersTableAdapter.Fill(this.membersDataSet.Members);
+        }
     }
 }
