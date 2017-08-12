@@ -5,18 +5,20 @@ namespace trf
 {
     public partial class frmMain : Form
     {
-
         frmAddMember addMemberWindow;
         public Member member;
 
-        string webpageUrlWikiTigers = "http://sv.wikipedia.org/wiki/Tiger";
-        string toolTipTigerInfo = "Markera en tiger i listan för att se info.";
+        string webpageUrlWikiTigers = 
+            "http://sv.wikipedia.org/wiki/Tiger";
+        string toolTipTigerInfo = "Markera en tiger i listan " +
+            "för att se info.";
 
         public frmMain()
         {
             InitializeComponent();
             this.Text = Program.name; // Fönstrets titel
-            member = new Member(membersDataSet, membersTableAdapter);
+            member = new Member(
+                membersDataSet, membersTableAdapter);
         }
 
         /* Hämta medlem-ID för den markerade medlemmen */
@@ -52,7 +54,6 @@ namespace trf
             {
                 membersTableAdapter.Fill(membersDataSet.Members);
                 UpdateTigerListBox();
-                
             }
 
             catch
@@ -68,8 +69,7 @@ namespace trf
             finally
             {
                 UpdateMemberCountLabel();
-                
-
+               
                 if (membersDataGridView.RowCount < 1)
                 {
                     btnRemoveMember.Enabled = false;
@@ -78,10 +78,13 @@ namespace trf
 
         }
 
-        /* Anropas när användaren markerar en (ny) medlem i medlemslistan  */
-        private void membersDataGridView_SelectionChanged(object sender, EventArgs e)
+        /* Anropas när användaren markerar en (ny) medlem i 
+         * medlemslistan  */
+        private void membersDataGridView_SelectionChanged(
+            object sender, EventArgs e)
         {
             UpdateTigerListBox();
+            lblCountry.Text = lblCountry.Text.ToUpper();
 
             lblName.Text = member.GetName(GetSelectedMemberID());
         }
@@ -157,7 +160,10 @@ namespace trf
             }
         }
 
-        private void infoOmTigrarToolStripMenuItem_Click(object sender, EventArgs e)
+        /* Anropas när avändaren väljer "info om tigrar" i 
+         * hjälp-menyn */
+        private void infoOmTigrarToolStripMenuItem_Click(
+            object sender, EventArgs e)
         {
             /* Visa dialogruta med knapparna Ja/Nej */
             DialogResult result = MessageBox.Show(
@@ -168,10 +174,12 @@ namespace trf
 
             if (result == DialogResult.Yes)
             {
-                System.Diagnostics.Process.Start(webpageUrlWikiTigers);
+                System.Diagnostics.Process.Start(
+                    webpageUrlWikiTigers);
             }
         }
 
+        /* Sätter diverse tooltips för kontroller i formen */
         void SetTooltips()
         {
             ToolTip tigersTooltip = new ToolTip();

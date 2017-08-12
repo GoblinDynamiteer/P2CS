@@ -53,10 +53,12 @@
             this.tigersListBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblTigerGender = new System.Windows.Forms.Label();
+            this.groupBoxTigerInfo = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.lblTigerName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTigerGender = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblCountry = new System.Windows.Forms.Label();
             this.lblStreet = new System.Windows.Forms.Label();
@@ -64,16 +66,14 @@
             this.lblCity = new System.Windows.Forms.Label();
             this.lblNumberOfMembers = new System.Windows.Forms.Label();
             this.btnAddMember = new System.Windows.Forms.Button();
-            this.groupBoxTigerInfo = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tigersBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBoxTigerInfo.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRemoveMember
@@ -276,15 +276,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Medlemsinformation";
             // 
-            // lblTigerGender
+            // groupBoxTigerInfo
             // 
-            this.lblTigerGender.AutoSize = true;
-            this.lblTigerGender.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tigersBindingSource, "Gender", true));
-            this.lblTigerGender.Location = new System.Drawing.Point(41, 55);
-            this.lblTigerGender.Name = "lblTigerGender";
-            this.lblTigerGender.Size = new System.Drawing.Size(50, 13);
-            this.lblTigerGender.TabIndex = 16;
-            this.lblTigerGender.Text = "TigerKön";
+            this.groupBoxTigerInfo.Controls.Add(this.label3);
+            this.groupBoxTigerInfo.Controls.Add(this.lblTigerName);
+            this.groupBoxTigerInfo.Controls.Add(this.lblTigerGender);
+            this.groupBoxTigerInfo.Controls.Add(this.lblType);
+            this.groupBoxTigerInfo.Controls.Add(this.label1);
+            this.groupBoxTigerInfo.Location = new System.Drawing.Point(227, 137);
+            this.groupBoxTigerInfo.Name = "groupBoxTigerInfo";
+            this.groupBoxTigerInfo.Size = new System.Drawing.Size(110, 83);
+            this.groupBoxTigerInfo.TabIndex = 17;
+            this.groupBoxTigerInfo.TabStop = false;
+            this.groupBoxTigerInfo.Text = "Tigerinfo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Kön:";
             // 
             // lblTigerName
             // 
@@ -297,14 +310,15 @@
             this.lblTigerName.TabIndex = 15;
             this.lblTigerName.Text = "Tigernamn";
             // 
-            // label1
+            // lblTigerGender
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Typ:";
+            this.lblTigerGender.AutoSize = true;
+            this.lblTigerGender.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tigersBindingSource, "Gender", true));
+            this.lblTigerGender.Location = new System.Drawing.Point(41, 55);
+            this.lblTigerGender.Name = "lblTigerGender";
+            this.lblTigerGender.Size = new System.Drawing.Size(50, 13);
+            this.lblTigerGender.TabIndex = 16;
+            this.lblTigerGender.Text = "TigerKön";
             // 
             // lblType
             // 
@@ -315,6 +329,15 @@
             this.lblType.Size = new System.Drawing.Size(49, 13);
             this.lblType.TabIndex = 13;
             this.lblType.Text = "TigerTyp";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Typ:";
             // 
             // groupBox2
             // 
@@ -362,7 +385,7 @@
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Country", true));
+            this.lblCity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "City", true));
             this.lblCity.Location = new System.Drawing.Point(49, 38);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(24, 13);
@@ -387,29 +410,6 @@
             this.btnAddMember.Text = "Ny Medlem";
             this.btnAddMember.UseVisualStyleBackColor = true;
             this.btnAddMember.Click += new System.EventHandler(this.btnAddMember_Click);
-            // 
-            // groupBoxTigerInfo
-            // 
-            this.groupBoxTigerInfo.Controls.Add(this.label3);
-            this.groupBoxTigerInfo.Controls.Add(this.lblTigerName);
-            this.groupBoxTigerInfo.Controls.Add(this.lblTigerGender);
-            this.groupBoxTigerInfo.Controls.Add(this.lblType);
-            this.groupBoxTigerInfo.Controls.Add(this.label1);
-            this.groupBoxTigerInfo.Location = new System.Drawing.Point(227, 137);
-            this.groupBoxTigerInfo.Name = "groupBoxTigerInfo";
-            this.groupBoxTigerInfo.Size = new System.Drawing.Size(110, 83);
-            this.groupBoxTigerInfo.TabIndex = 17;
-            this.groupBoxTigerInfo.TabStop = false;
-            this.groupBoxTigerInfo.Text = "Tigerinfo";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 55);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Kön:";
             // 
             // frmMain
             // 
@@ -436,10 +436,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tigersBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBoxTigerInfo.ResumeLayout(false);
             this.groupBoxTigerInfo.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
