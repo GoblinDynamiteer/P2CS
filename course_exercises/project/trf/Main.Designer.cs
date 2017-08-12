@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.btnRemoveMember = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,17 +55,23 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblNumberOfMembers = new System.Windows.Forms.Label();
             this.btnAddMember = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblCity = new System.Windows.Forms.Label();
+            this.lblipCode = new System.Windows.Forms.Label();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.lblStreet = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tigersBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRemoveMember
             // 
-            this.btnRemoveMember.Location = new System.Drawing.Point(16, 339);
+            this.btnRemoveMember.Location = new System.Drawing.Point(16, 292);
             this.btnRemoveMember.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveMember.Name = "btnRemoveMember";
             this.btnRemoveMember.Size = new System.Drawing.Size(142, 32);
@@ -199,11 +206,12 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(13, 36);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.Size = new System.Drawing.Size(140, 18);
             this.lblName.TabIndex = 9;
-            this.lblName.Text = "label2";
+            this.lblName.Text = "Förnamn Efternamn";
             // 
             // membersTableAdapter
             // 
@@ -230,7 +238,7 @@
             this.tigersListBox.DataSource = this.tigersBindingSource;
             this.tigersListBox.DisplayMember = "Name";
             this.tigersListBox.FormattingEnabled = true;
-            this.tigersListBox.Location = new System.Drawing.Point(16, 205);
+            this.tigersListBox.Location = new System.Drawing.Point(230, 85);
             this.tigersListBox.Name = "tigersListBox";
             this.tigersListBox.Size = new System.Drawing.Size(88, 69);
             this.tigersListBox.TabIndex = 10;
@@ -239,7 +247,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 189);
+            this.label2.Location = new System.Drawing.Point(227, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 11;
@@ -247,13 +255,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.tigersListBox);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnRemoveMember);
             this.groupBox1.Location = new System.Drawing.Point(280, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(368, 388);
+            this.groupBox1.Size = new System.Drawing.Size(343, 344);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Medlemsinformation";
@@ -277,6 +286,59 @@
             this.btnAddMember.UseVisualStyleBackColor = true;
             this.btnAddMember.Click += new System.EventHandler(this.btnAddMember_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblCountry);
+            this.groupBox2.Controls.Add(this.lblStreet);
+            this.groupBox2.Controls.Add(this.lblipCode);
+            this.groupBox2.Controls.Add(this.lblCity);
+            this.groupBox2.Location = new System.Drawing.Point(16, 67);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(180, 87);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Adress";
+            // 
+            // lblCity
+            // 
+            this.lblCity.AutoSize = true;
+            this.lblCity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Country", true));
+            this.lblCity.Location = new System.Drawing.Point(49, 38);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(24, 13);
+            this.lblCity.TabIndex = 0;
+            this.lblCity.Text = "City";
+            // 
+            // lblipCode
+            // 
+            this.lblipCode.AutoSize = true;
+            this.lblipCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "ZipCode", true));
+            this.lblipCode.Location = new System.Drawing.Point(8, 38);
+            this.lblipCode.Name = "lblipCode";
+            this.lblipCode.Size = new System.Drawing.Size(37, 13);
+            this.lblipCode.TabIndex = 0;
+            this.lblipCode.Text = "12345";
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Country", true));
+            this.lblCountry.Location = new System.Drawing.Point(8, 51);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(43, 13);
+            this.lblCountry.TabIndex = 0;
+            this.lblCountry.Text = "Country";
+            // 
+            // lblStreet
+            // 
+            this.lblStreet.AutoSize = true;
+            this.lblStreet.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Street", true));
+            this.lblStreet.Location = new System.Drawing.Point(8, 25);
+            this.lblStreet.Name = "lblStreet";
+            this.lblStreet.Size = new System.Drawing.Size(35, 13);
+            this.lblStreet.TabIndex = 0;
+            this.lblStreet.Text = "Street";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +350,7 @@
             this.Controls.Add(this.membersDataGridView);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
@@ -301,6 +364,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tigersBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,6 +397,11 @@
         public MembersDataSetTableAdapters.MembersTableAdapter membersTableAdapter;
         private System.Windows.Forms.Label lblNumberOfMembers;
         private System.Windows.Forms.Button btnAddMember;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblCity;
+        private System.Windows.Forms.Label lblCountry;
+        private System.Windows.Forms.Label lblStreet;
+        private System.Windows.Forms.Label lblipCode;
     }
 }
 

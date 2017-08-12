@@ -21,7 +21,6 @@ namespace trf
             if (index >= 0)
             {
                 membersDataSet.Members.Rows[index].Delete();
-                //UpdateDabatase();
             }
 
         }
@@ -73,11 +72,6 @@ namespace trf
                     zipCode, country, city
                 );
 
-            UpdateDabatase();
-        }
-
-        void UpdateDabatase()
-        {
             membersDataSet.AcceptChanges();
             membersTableAdapter.Fill(membersDataSet.Members);
         }

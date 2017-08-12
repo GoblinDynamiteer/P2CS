@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace trf
@@ -19,7 +12,7 @@ namespace trf
         public frmMain()
         {
             InitializeComponent();
-            this.Text = Program.name;
+            this.Text = Program.name; // Fönstrets titel
             member = new Member(membersDataSet, membersTableAdapter);
         }
 
@@ -54,24 +47,70 @@ namespace trf
             try
             {
                 membersTableAdapter.Fill(membersDataSet.Members);
-                tigersTableAdapter.Fill(membersDataSet.Tigers);
+                UpdateTigerListBox();
             }
 
             catch
             {
+                MessageBox.Show("Fel vid inläsning av databas.",
+                    "Fel!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation,
+                    MessageBoxDefaultButton.Button1
+                );
             }
 
-            UpdateMemberCountLabel();
-
-            if (membersDataGridView.RowCount < 1)
+            finally
             {
-                btnRemoveMember.Enabled = false;
+                UpdateMemberCountLabel();
+
+                if (membersDataGridView.RowCount < 1)
+                {
+                    btnRemoveMember.Enabled = false;
+                }
             }
-            
+
         }
 
         /* Anropas när användaren markerar en (ny) medlem i medlemslistan  */
         private void membersDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            UpdateTigerListBox();
+
+            lblName.Text = member.GetName(GetSelectedMemberID());
+        }
+
+        /* Anropas när användaren trycker på knappen 'Radera medlem'  */
+        private void btnRemoveMember_Click(object sender, EventArgs e)
+        {
+            int deleteID = GetSelectedMemberID();
+
+            /* Visa dialogruta med knapparna Ja/Nej */
+            DialogResult result = MessageBox.Show(
+                "Är du säker på att du vill radera " 
+                + member.GetName(deleteID) + "?",
+                "Radering av medlem",
+                MessageBoxButtons.YesNo
+            );
+
+            /* Om användaren trycker på Ja */
+            if (result == DialogResult.Yes)
+            {
+                member.RemoveByID(deleteID);
+
+                UpdateDatabase();
+                UpdateMemberCountLabel();
+
+                if (membersDataGridView.RowCount < 1)
+                {
+                    btnRemoveMember.Enabled = false;
+                }
+            }
+        }
+
+        /* Uppdatera listan med tigrar som tillhör medlemmen
+         * som är markerad i medlemslistan */
+        private void UpdateTigerListBox()
         {
             int memberId = GetSelectedMemberID();
 
@@ -79,25 +118,6 @@ namespace trf
                     membersDataSet.Tigers,
                     memberId
                 );
-
-            lblName.Text = member.GetName(memberId);
-        }
-
-        /* Anropas när användaren trycker på knappen 'Radera medlem'  */
-        private void btnRemoveMember_Click(object sender, EventArgs e)
-        {
-            
-            int deleteID = GetSelectedMemberID();
-            member.RemoveByID(deleteID);
-            
-            UpdateDatabase();
-            UpdateMemberCountLabel();
-
-            if (membersDataGridView.RowCount < 1)
-            {
-                btnRemoveMember.Enabled = false;
-            }
-
         }
 
         /* Uppdaterar texten för antal medlemmar. */
