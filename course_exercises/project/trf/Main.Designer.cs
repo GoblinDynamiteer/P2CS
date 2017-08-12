@@ -53,13 +53,19 @@
             this.tigersListBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblNumberOfMembers = new System.Windows.Forms.Label();
-            this.btnAddMember = new System.Windows.Forms.Button();
+            this.lblTigerGender = new System.Windows.Forms.Label();
+            this.lblTigerName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblType = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblCity = new System.Windows.Forms.Label();
-            this.lblipCode = new System.Windows.Forms.Label();
             this.lblCountry = new System.Windows.Forms.Label();
             this.lblStreet = new System.Windows.Forms.Label();
+            this.lblipCode = new System.Windows.Forms.Label();
+            this.lblCity = new System.Windows.Forms.Label();
+            this.lblNumberOfMembers = new System.Windows.Forms.Label();
+            this.btnAddMember = new System.Windows.Forms.Button();
+            this.groupBoxTigerInfo = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersDataSet)).BeginInit();
@@ -67,11 +73,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.tigersBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBoxTigerInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRemoveMember
             // 
-            this.btnRemoveMember.Location = new System.Drawing.Point(16, 292);
+            this.btnRemoveMember.Location = new System.Drawing.Point(16, 188);
             this.btnRemoveMember.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveMember.Name = "btnRemoveMember";
             this.btnRemoveMember.Size = new System.Drawing.Size(142, 32);
@@ -169,7 +176,7 @@
             this.dataGridViewTextBoxColumn3});
             this.membersDataGridView.DataSource = this.membersBindingSource;
             this.membersDataGridView.GridColor = System.Drawing.SystemColors.Window;
-            this.membersDataGridView.Location = new System.Drawing.Point(25, 50);
+            this.membersDataGridView.Location = new System.Drawing.Point(25, 57);
             this.membersDataGridView.MultiSelect = false;
             this.membersDataGridView.Name = "membersDataGridView";
             this.membersDataGridView.ReadOnly = true;
@@ -239,16 +246,16 @@
             this.tigersListBox.DataSource = this.tigersBindingSource;
             this.tigersListBox.DisplayMember = "Name";
             this.tigersListBox.FormattingEnabled = true;
-            this.tigersListBox.Location = new System.Drawing.Point(230, 85);
+            this.tigersListBox.Location = new System.Drawing.Point(227, 62);
             this.tigersListBox.Name = "tigersListBox";
-            this.tigersListBox.Size = new System.Drawing.Size(88, 69);
+            this.tigersListBox.Size = new System.Drawing.Size(110, 69);
             this.tigersListBox.TabIndex = 10;
             this.tigersListBox.ValueMember = "Id";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(227, 69);
+            this.label2.Location = new System.Drawing.Point(224, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 11;
@@ -256,36 +263,58 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBoxTigerInfo);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.tigersListBox);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnRemoveMember);
-            this.groupBox1.Location = new System.Drawing.Point(280, 41);
+            this.groupBox1.Location = new System.Drawing.Point(280, 59);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(343, 344);
+            this.groupBox1.Size = new System.Drawing.Size(359, 237);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Medlemsinformation";
             // 
-            // lblNumberOfMembers
+            // lblTigerGender
             // 
-            this.lblNumberOfMembers.AutoSize = true;
-            this.lblNumberOfMembers.Location = new System.Drawing.Point(25, 28);
-            this.lblNumberOfMembers.Name = "lblNumberOfMembers";
-            this.lblNumberOfMembers.Size = new System.Drawing.Size(35, 13);
-            this.lblNumberOfMembers.TabIndex = 13;
-            this.lblNumberOfMembers.Text = "label1";
+            this.lblTigerGender.AutoSize = true;
+            this.lblTigerGender.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tigersBindingSource, "Gender", true));
+            this.lblTigerGender.Location = new System.Drawing.Point(41, 55);
+            this.lblTigerGender.Name = "lblTigerGender";
+            this.lblTigerGender.Size = new System.Drawing.Size(50, 13);
+            this.lblTigerGender.TabIndex = 16;
+            this.lblTigerGender.Text = "TigerKön";
             // 
-            // btnAddMember
+            // lblTigerName
             // 
-            this.btnAddMember.Location = new System.Drawing.Point(25, 405);
-            this.btnAddMember.Name = "btnAddMember";
-            this.btnAddMember.Size = new System.Drawing.Size(75, 23);
-            this.btnAddMember.TabIndex = 14;
-            this.btnAddMember.Text = "Ny Medlem";
-            this.btnAddMember.UseVisualStyleBackColor = true;
-            this.btnAddMember.Click += new System.EventHandler(this.btnAddMember_Click);
+            this.lblTigerName.AutoSize = true;
+            this.lblTigerName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tigersBindingSource, "Name", true));
+            this.lblTigerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTigerName.Location = new System.Drawing.Point(6, 16);
+            this.lblTigerName.Name = "lblTigerName";
+            this.lblTigerName.Size = new System.Drawing.Size(84, 20);
+            this.lblTigerName.TabIndex = 15;
+            this.lblTigerName.Text = "Tigernamn";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Typ:";
+            // 
+            // lblType
+            // 
+            this.lblType.AutoSize = true;
+            this.lblType.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tigersBindingSource, "Type", true));
+            this.lblType.Location = new System.Drawing.Point(41, 38);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(49, 13);
+            this.lblType.TabIndex = 13;
+            this.lblType.Text = "TigerTyp";
             // 
             // groupBox2
             // 
@@ -299,26 +328,6 @@
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Adress";
-            // 
-            // lblCity
-            // 
-            this.lblCity.AutoSize = true;
-            this.lblCity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Country", true));
-            this.lblCity.Location = new System.Drawing.Point(49, 38);
-            this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(24, 13);
-            this.lblCity.TabIndex = 0;
-            this.lblCity.Text = "City";
-            // 
-            // lblipCode
-            // 
-            this.lblipCode.AutoSize = true;
-            this.lblipCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "ZipCode", true));
-            this.lblipCode.Location = new System.Drawing.Point(8, 38);
-            this.lblipCode.Name = "lblipCode";
-            this.lblipCode.Size = new System.Drawing.Size(37, 13);
-            this.lblipCode.TabIndex = 0;
-            this.lblipCode.Text = "12345";
             // 
             // lblCountry
             // 
@@ -339,6 +348,68 @@
             this.lblStreet.Size = new System.Drawing.Size(35, 13);
             this.lblStreet.TabIndex = 0;
             this.lblStreet.Text = "Street";
+            // 
+            // lblipCode
+            // 
+            this.lblipCode.AutoSize = true;
+            this.lblipCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "ZipCode", true));
+            this.lblipCode.Location = new System.Drawing.Point(8, 38);
+            this.lblipCode.Name = "lblipCode";
+            this.lblipCode.Size = new System.Drawing.Size(37, 13);
+            this.lblipCode.TabIndex = 0;
+            this.lblipCode.Text = "12345";
+            // 
+            // lblCity
+            // 
+            this.lblCity.AutoSize = true;
+            this.lblCity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Country", true));
+            this.lblCity.Location = new System.Drawing.Point(49, 38);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(24, 13);
+            this.lblCity.TabIndex = 0;
+            this.lblCity.Text = "City";
+            // 
+            // lblNumberOfMembers
+            // 
+            this.lblNumberOfMembers.AutoSize = true;
+            this.lblNumberOfMembers.Location = new System.Drawing.Point(25, 35);
+            this.lblNumberOfMembers.Name = "lblNumberOfMembers";
+            this.lblNumberOfMembers.Size = new System.Drawing.Size(100, 13);
+            this.lblNumberOfMembers.TabIndex = 13;
+            this.lblNumberOfMembers.Text = "Antal medlemmar: X";
+            // 
+            // btnAddMember
+            // 
+            this.btnAddMember.Location = new System.Drawing.Point(25, 408);
+            this.btnAddMember.Name = "btnAddMember";
+            this.btnAddMember.Size = new System.Drawing.Size(105, 36);
+            this.btnAddMember.TabIndex = 14;
+            this.btnAddMember.Text = "Ny Medlem";
+            this.btnAddMember.UseVisualStyleBackColor = true;
+            this.btnAddMember.Click += new System.EventHandler(this.btnAddMember_Click);
+            // 
+            // groupBoxTigerInfo
+            // 
+            this.groupBoxTigerInfo.Controls.Add(this.label3);
+            this.groupBoxTigerInfo.Controls.Add(this.lblTigerName);
+            this.groupBoxTigerInfo.Controls.Add(this.lblTigerGender);
+            this.groupBoxTigerInfo.Controls.Add(this.lblType);
+            this.groupBoxTigerInfo.Controls.Add(this.label1);
+            this.groupBoxTigerInfo.Location = new System.Drawing.Point(227, 137);
+            this.groupBoxTigerInfo.Name = "groupBoxTigerInfo";
+            this.groupBoxTigerInfo.Size = new System.Drawing.Size(110, 83);
+            this.groupBoxTigerInfo.TabIndex = 17;
+            this.groupBoxTigerInfo.TabStop = false;
+            this.groupBoxTigerInfo.Text = "Tigerinfo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Kön:";
             // 
             // frmMain
             // 
@@ -367,6 +438,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBoxTigerInfo.ResumeLayout(false);
+            this.groupBoxTigerInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -403,6 +476,12 @@
         private System.Windows.Forms.Label lblCountry;
         private System.Windows.Forms.Label lblStreet;
         private System.Windows.Forms.Label lblipCode;
+        private System.Windows.Forms.Label lblType;
+        private System.Windows.Forms.Label lblTigerName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTigerGender;
+        private System.Windows.Forms.GroupBox groupBoxTigerInfo;
+        private System.Windows.Forms.Label label3;
     }
 }
 

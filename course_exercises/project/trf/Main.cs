@@ -10,6 +10,7 @@ namespace trf
         public Member member;
 
         string webpageUrlWikiTigers = "http://sv.wikipedia.org/wiki/Tiger";
+        string toolTipTigerInfo = "Markera en tiger i listan för att se info.";
 
         public frmMain()
         {
@@ -45,11 +46,13 @@ namespace trf
         /* Anropas när fönstret/from-kontrollen startas */
         private void frmMain_Load(object sender, EventArgs e)
         {
+            SetTooltips();
 
             try
             {
                 membersTableAdapter.Fill(membersDataSet.Members);
                 UpdateTigerListBox();
+                
             }
 
             catch
@@ -65,6 +68,7 @@ namespace trf
             finally
             {
                 UpdateMemberCountLabel();
+                
 
                 if (membersDataGridView.RowCount < 1)
                 {
@@ -167,5 +171,16 @@ namespace trf
                 System.Diagnostics.Process.Start(webpageUrlWikiTigers);
             }
         }
+
+        void SetTooltips()
+        {
+            ToolTip tigersTooltip = new ToolTip();
+
+            tigersTooltip.SetToolTip(
+                tigersListBox, toolTipTigerInfo);
+            tigersTooltip.SetToolTip(
+                groupBoxTigerInfo, toolTipTigerInfo);
+        }
+
     }
 }
