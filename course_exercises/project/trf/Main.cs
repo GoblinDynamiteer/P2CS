@@ -18,7 +18,7 @@ namespace trf
             InitializeComponent();
             this.Text = Program.name; // Fönstrets titel
             member = new Member(
-                membersDataSet, membersTableAdapter);
+                dataset, adapterMembers);
         }
 
         /* Hämta medlem-ID för den markerade medlemmen */
@@ -29,7 +29,7 @@ namespace trf
             /* Kör enbart en gång, då multi-select är satt 
              * till false för DataGridView-kontrollen */
             foreach (DataGridViewRow row in 
-                membersDataGridView.SelectedRows)
+                dataView.SelectedRows)
             {
                 id = int.Parse(row.Cells[0].Value.ToString());
             }
@@ -52,7 +52,7 @@ namespace trf
 
             try
             {
-                membersTableAdapter.Fill(membersDataSet.Members);
+                adapterMembers.Fill(dataset.Members);
                 UpdateTigerListBox();
             }
 
@@ -70,7 +70,7 @@ namespace trf
             {
                 UpdateMemberCountLabel();
                
-                if (membersDataGridView.RowCount < 1)
+                if (dataView.RowCount < 1)
                 {
                     btnRemoveMember.Enabled = false;
                 }
@@ -80,7 +80,7 @@ namespace trf
 
         /* Anropas när användaren markerar en (ny) medlem i 
          * medlemslistan  */
-        private void membersDataGridView_SelectionChanged(
+        private void dataView_SelectionChanged(
             object sender, EventArgs e)
         {
             UpdateTigerListBox();
@@ -110,7 +110,7 @@ namespace trf
                 UpdateDatabase();
                 UpdateMemberCountLabel();
 
-                if (membersDataGridView.RowCount < 1)
+                if (dataView.RowCount < 1)
                 {
                     btnRemoveMember.Enabled = false;
                 }
@@ -123,8 +123,8 @@ namespace trf
         {
             int memberId = GetSelectedMemberID();
 
-            tigersTableAdapter.FillByOwnerID(
-                    membersDataSet.Tigers,
+            adapterTigers.FillByOwnerID(
+                    dataset.Tigers,
                     memberId
                 );
         }
@@ -134,7 +134,7 @@ namespace trf
         {
             /* Antal medlemmar hämtas från DataGridView-kontrollen */
             lblNumberOfMembers.Text = string.Format(
-                "Medlemmar: {0}", membersDataGridView.RowCount);
+                "Medlemmar: {0}", dataView.RowCount);
         }
 
         /* Anropas när användaren trycker på knappen 'Ny medlem'  */
@@ -152,7 +152,7 @@ namespace trf
             {
                 Validate();
                 membersBindingSource.EndEdit();
-                membersTableAdapter.Update(membersDataSet.Members);
+                adapterMembers.Update(dataset.Members);
             }
             catch (System.Exception ex)
             {

@@ -4,21 +4,21 @@ namespace trf
 {
     public class Member
     {
-        MembersDataSet membersDataSet;
-        MembersTableAdapter membersTableAdapter;
+        MembersDataSet dataset;
+        MembersTableAdapter adapter;
 
-        public Member(MembersDataSet membersDataSet, 
-                      MembersTableAdapter membersTableAdapter)
+        public Member(MembersDataSet dataset, 
+                      MembersTableAdapter adapter)
         {
-            this.membersDataSet = membersDataSet;
-            this.membersTableAdapter = membersTableAdapter;
+            this.dataset = dataset;
+            this.adapter = adapter;
         }
 
         /* Radera medlem */
         public void RemoveByID(int memberId)
         {
-            membersTableAdapter.DeleteQuery(memberId);
-            membersTableAdapter.Fill(membersDataSet.Members);
+            adapter.DeleteQuery(memberId);
+            adapter.Fill(dataset.Members);
         }
 
         /* Ger en medlems fulla namn */
@@ -29,9 +29,9 @@ namespace trf
             if (index >= 0)
             {
                 string firstName = 
-                    membersDataSet.Members.Rows[index]["FirstName"].ToString();
+                    dataset.Members.Rows[index]["FirstName"].ToString();
                 string lastName = 
-                    membersDataSet.Members.Rows[index]["LastName"].ToString();
+                    dataset.Members.Rows[index]["LastName"].ToString();
                 return firstName + " " + lastName;
             }
 
@@ -43,12 +43,12 @@ namespace trf
          * med sökt medlems-ID*/
         int GetRowIndex(int memberId)
         {
-            for (int i = 0; i < membersDataSet.Members.Rows.Count; i++)
+            for (int i = 0; i < dataset.Members.Rows.Count; i++)
             {
                 try
                 {
                     int id = int.Parse(
-                            membersDataSet.Members.Rows[i]["Id"].ToString()
+                            dataset.Members.Rows[i]["Id"].ToString()
                         );
 
                     if (id == memberId)
@@ -72,12 +72,12 @@ namespace trf
         public void Add(string firstName, string secondName, string street, 
                         string city, string country, int zipCode)
         {
-            membersTableAdapter.InsertQuery(
+            adapter.InsertQuery(
                     firstName, secondName, street, 
                     zipCode, country, city
                 );
 
-            membersTableAdapter.Fill(membersDataSet.Members);
+            adapter.Fill(dataset.Members);
         }
 
     }

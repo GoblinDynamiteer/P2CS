@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.btnRemoveMember = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.exporteraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,15 +40,15 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoOmTigrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.membersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.membersDataSet = new trf.MembersDataSet();
-            this.membersDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataset = new trf.MembersDataSet();
+            this.dataView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblName = new System.Windows.Forms.Label();
-            this.membersTableAdapter = new trf.MembersDataSetTableAdapters.MembersTableAdapter();
+            this.adapterMembers = new trf.MembersDataSetTableAdapters.MembersTableAdapter();
             this.tableAdapterManager = new trf.MembersDataSetTableAdapters.TableAdapterManager();
-            this.tigersTableAdapter = new trf.MembersDataSetTableAdapters.TigersTableAdapter();
+            this.adapterTigers = new trf.MembersDataSetTableAdapters.TigersTableAdapter();
             this.tigersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tigersListBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,10 +66,10 @@
             this.lblCity = new System.Windows.Forms.Label();
             this.lblNumberOfMembers = new System.Windows.Forms.Label();
             this.btnAddMember = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.membersDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.membersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tigersBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBoxTigerInfo.SuspendLayout();
@@ -87,18 +87,18 @@
             this.btnRemoveMember.UseVisualStyleBackColor = true;
             this.btnRemoveMember.Click += new System.EventHandler(this.btnRemoveMember_Click);
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(676, 24);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
+            this.menuStrip.Size = new System.Drawing.Size(676, 24);
+            this.menuStrip.TabIndex = 5;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -152,39 +152,39 @@
             // membersBindingSource
             // 
             this.membersBindingSource.DataMember = "Members";
-            this.membersBindingSource.DataSource = this.membersDataSet;
+            this.membersBindingSource.DataSource = this.dataset;
             // 
-            // membersDataSet
+            // dataset
             // 
-            this.membersDataSet.DataSetName = "MembersDataSet";
-            this.membersDataSet.EnforceConstraints = false;
-            this.membersDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataset.DataSetName = "MembersDataSet";
+            this.dataset.EnforceConstraints = false;
+            this.dataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // membersDataGridView
+            // dataView
             // 
-            this.membersDataGridView.AllowUserToAddRows = false;
-            this.membersDataGridView.AllowUserToDeleteRows = false;
-            this.membersDataGridView.AllowUserToResizeColumns = false;
-            this.membersDataGridView.AllowUserToResizeRows = false;
-            this.membersDataGridView.AutoGenerateColumns = false;
-            this.membersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.membersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.membersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.membersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataView.AllowUserToAddRows = false;
+            this.dataView.AllowUserToDeleteRows = false;
+            this.dataView.AllowUserToResizeColumns = false;
+            this.dataView.AllowUserToResizeRows = false;
+            this.dataView.AutoGenerateColumns = false;
+            this.dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.membersDataGridView.DataSource = this.membersBindingSource;
-            this.membersDataGridView.GridColor = System.Drawing.SystemColors.Window;
-            this.membersDataGridView.Location = new System.Drawing.Point(25, 57);
-            this.membersDataGridView.MultiSelect = false;
-            this.membersDataGridView.Name = "membersDataGridView";
-            this.membersDataGridView.ReadOnly = true;
-            this.membersDataGridView.RowHeadersVisible = false;
-            this.membersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.membersDataGridView.Size = new System.Drawing.Size(231, 335);
-            this.membersDataGridView.TabIndex = 8;
-            this.membersDataGridView.SelectionChanged += new System.EventHandler(this.membersDataGridView_SelectionChanged);
+            this.dataView.DataSource = this.membersBindingSource;
+            this.dataView.GridColor = System.Drawing.SystemColors.Window;
+            this.dataView.Location = new System.Drawing.Point(25, 57);
+            this.dataView.MultiSelect = false;
+            this.dataView.Name = "dataView";
+            this.dataView.ReadOnly = true;
+            this.dataView.RowHeadersVisible = false;
+            this.dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataView.Size = new System.Drawing.Size(231, 335);
+            this.dataView.TabIndex = 8;
+            this.dataView.SelectionChanged += new System.EventHandler(this.dataView_SelectionChanged);
             // 
             // Column1
             // 
@@ -221,25 +221,25 @@
             this.lblName.TabIndex = 9;
             this.lblName.Text = "Förnamn Efternamn";
             // 
-            // membersTableAdapter
+            // adapterMembers
             // 
-            this.membersTableAdapter.ClearBeforeFill = true;
+            this.adapterMembers.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.MembersTableAdapter = this.membersTableAdapter;
+            this.tableAdapterManager.MembersTableAdapter = this.adapterMembers;
             this.tableAdapterManager.TigersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = trf.MembersDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // tigersTableAdapter
+            // adapterTigers
             // 
-            this.tigersTableAdapter.ClearBeforeFill = true;
+            this.adapterTigers.ClearBeforeFill = true;
             // 
             // tigersBindingSource
             // 
             this.tigersBindingSource.DataMember = "Tigers";
-            this.tigersBindingSource.DataSource = this.membersDataSet;
+            this.tigersBindingSource.DataSource = this.dataset;
             // 
             // tigersListBox
             // 
@@ -419,20 +419,20 @@
             this.Controls.Add(this.btnAddMember);
             this.Controls.Add(this.lblNumberOfMembers);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.membersDataGridView);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.dataView);
+            this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.membersDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.membersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tigersBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -447,7 +447,7 @@
 
         #endregion
         private System.Windows.Forms.Button btnRemoveMember;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
@@ -456,9 +456,9 @@
         private System.Windows.Forms.ToolStripMenuItem exporteraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoOmTigrarToolStripMenuItem;
         private MembersDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridView membersDataGridView;
+        private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.Label lblName;
-        private MembersDataSetTableAdapters.TigersTableAdapter tigersTableAdapter;
+        private MembersDataSetTableAdapters.TigersTableAdapter adapterTigers;
         private System.Windows.Forms.BindingSource tigersBindingSource;
         private System.Windows.Forms.ListBox tigersListBox;
         private System.Windows.Forms.Label label2;
@@ -466,9 +466,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        public MembersDataSet membersDataSet;
+        public MembersDataSet dataset;
         public System.Windows.Forms.BindingSource membersBindingSource;
-        public MembersDataSetTableAdapters.MembersTableAdapter membersTableAdapter;
+        public MembersDataSetTableAdapters.MembersTableAdapter adapterMembers;
         private System.Windows.Forms.Label lblNumberOfMembers;
         private System.Windows.Forms.Button btnAddMember;
         private System.Windows.Forms.GroupBox groupBox2;
