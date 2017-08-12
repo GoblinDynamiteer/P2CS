@@ -20,10 +20,10 @@ namespace trf
 
             if (index >= 0)
             {
-                membersDataSet.Members.Rows.RemoveAt(index);
+                membersDataSet.Members.Rows[index].Delete();
+                //UpdateDabatase();
             }
 
-            Update();
         }
 
         public string GetName(int memberId)
@@ -40,12 +40,6 @@ namespace trf
             return "";
             
         }
-
-        public int Count()
-        {
-            return membersDataSet.Members.Rows.Count;
-        }
-
 
         int GetRowIndex(int memberId)
         {
@@ -79,14 +73,15 @@ namespace trf
                     zipCode, country, city
                 );
 
-            membersTableAdapter.Fill(membersDataSet.Members);
-            Update();
+            UpdateDabatase();
         }
 
-        void Update()
+        void UpdateDabatase()
         {
-            membersTableAdapter.Update(membersDataSet.Members);
+            membersDataSet.AcceptChanges();
+            membersTableAdapter.Fill(membersDataSet.Members);
         }
+
     }
 
 }

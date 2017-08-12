@@ -29,6 +29,7 @@ namespace trf
             int zipCode = int.Parse(textBoxZipCode.Text);
 
             frmMain.member.Add(firstName, lastName, street, city, country, zipCode);
+            frmMain.UpdateMemberCountLabel();
         }
     }
 }
