@@ -9,6 +9,8 @@ namespace trf
         frmAddMember addMemberWindow;
         public Member member;
 
+        string webpageUrlWikiTigers = "http://sv.wikipedia.org/wiki/Tiger";
+
         public frmMain()
         {
             InitializeComponent();
@@ -148,6 +150,21 @@ namespace trf
             catch (System.Exception ex)
             {
                 MessageBox.Show("Update failed");
+            }
+        }
+
+        private void infoOmTigrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /* Visa dialogruta med knapparna Ja/Nej */
+            DialogResult result = MessageBox.Show(
+                "Vill du besöka Wikipedia-sidan om tigrar?",
+                "Info om trigrar",
+                MessageBoxButtons.YesNo
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(webpageUrlWikiTigers);
             }
         }
     }

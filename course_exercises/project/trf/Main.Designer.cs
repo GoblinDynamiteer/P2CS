@@ -140,6 +140,7 @@
             this.infoOmTigrarToolStripMenuItem.Name = "infoOmTigrarToolStripMenuItem";
             this.infoOmTigrarToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.infoOmTigrarToolStripMenuItem.Text = "Info om tigrar";
+            this.infoOmTigrarToolStripMenuItem.Click += new System.EventHandler(this.infoOmTigrarToolStripMenuItem_Click);
             // 
             // membersBindingSource
             // 
