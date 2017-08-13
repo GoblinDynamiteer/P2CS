@@ -22,9 +22,18 @@ namespace trf
             adapter.Fill(dataset.Tigers);
         }
 
+        /* Uppdatera listan med tigrar som tillhör medlemmen
+         * som är markerad i medlemslistan */
         public void FillByMemberID(int memberId)
         {
+            adapter.ClearBeforeFill = true;
             adapter.FillByOwnerID(dataset.Tigers, memberId);
+        }
+
+        /* Radera tiger med ID */
+        public void RemoveByTigerID(int tigerId)
+        {
+            adapter.DeleteByTigerID(tigerId);
         }
     }
 }

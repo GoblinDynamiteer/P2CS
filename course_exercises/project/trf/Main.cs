@@ -56,7 +56,6 @@ namespace trf
             {
                 adapterMembers.Fill(dataset.Members);
                 tiger.FillByMemberID(GetSelectedMemberID());
-                //UpdateTigerListBox();
             }
 
             catch
@@ -87,7 +86,6 @@ namespace trf
             object sender, EventArgs e)
         {
             int memberId = GetSelectedMemberID();
-            //UpdateTigerListBox();
             tiger.FillByMemberID(memberId);
             lblCountry.Text = lblCountry.Text.ToUpper();
 
@@ -121,18 +119,6 @@ namespace trf
                     btnRemoveMember.Enabled = false;
                 }
             }
-        }
-
-        /* Uppdatera listan med tigrar som tillhör medlemmen
-         * som är markerad i medlemslistan */
-        private void UpdateTigerListBox()
-        {
-            int memberId = GetSelectedMemberID();
-
-            adapterTigers.FillByOwnerID(
-                    dataset.Tigers,
-                    memberId
-                );
         }
 
         /* Uppdaterar texten för antal medlemmar. */
@@ -196,5 +182,13 @@ namespace trf
                 groupBoxTigerInfo, toolTipTigerInfo);
         }
 
+        private void btnRemoveTiger_Click(object sender, EventArgs e)
+        {
+            int tigerId = int.Parse(textBoxTigerID.Text);
+            int memberId = GetSelectedMemberID();
+
+            tiger.RemoveByTigerID(tigerId);
+            tiger.FillByMemberID(memberId);
+        }
     }
 }

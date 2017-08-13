@@ -53,6 +53,8 @@
             this.tigersListBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRemoveTiger = new System.Windows.Forms.Button();
+            this.btnAddTiger = new System.Windows.Forms.Button();
             this.groupBoxTigerInfo = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTigerName = new System.Windows.Forms.Label();
@@ -66,6 +68,8 @@
             this.lblCity = new System.Windows.Forms.Label();
             this.lblNumberOfMembers = new System.Windows.Forms.Label();
             this.btnAddMember = new System.Windows.Forms.Button();
+            this.textBoxTigerID = new System.Windows.Forms.TextBox();
+            this.textBoxMemberId = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataset)).BeginInit();
@@ -78,7 +82,7 @@
             // 
             // btnRemoveMember
             // 
-            this.btnRemoveMember.Location = new System.Drawing.Point(16, 188);
+            this.btnRemoveMember.Location = new System.Drawing.Point(16, 266);
             this.btnRemoveMember.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveMember.Name = "btnRemoveMember";
             this.btnRemoveMember.Size = new System.Drawing.Size(142, 32);
@@ -263,6 +267,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnRemoveTiger);
+            this.groupBox1.Controls.Add(this.btnAddTiger);
             this.groupBox1.Controls.Add(this.groupBoxTigerInfo);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.tigersListBox);
@@ -271,10 +277,29 @@
             this.groupBox1.Controls.Add(this.btnRemoveMember);
             this.groupBox1.Location = new System.Drawing.Point(280, 59);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(359, 237);
+            this.groupBox1.Size = new System.Drawing.Size(359, 312);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Medlemsinformation";
+            // 
+            // btnRemoveTiger
+            // 
+            this.btnRemoveTiger.Location = new System.Drawing.Point(227, 266);
+            this.btnRemoveTiger.Name = "btnRemoveTiger";
+            this.btnRemoveTiger.Size = new System.Drawing.Size(110, 32);
+            this.btnRemoveTiger.TabIndex = 19;
+            this.btnRemoveTiger.Text = "Ta bort tiger";
+            this.btnRemoveTiger.UseVisualStyleBackColor = true;
+            this.btnRemoveTiger.Click += new System.EventHandler(this.btnRemoveTiger_Click);
+            // 
+            // btnAddTiger
+            // 
+            this.btnAddTiger.Location = new System.Drawing.Point(227, 228);
+            this.btnAddTiger.Name = "btnAddTiger";
+            this.btnAddTiger.Size = new System.Drawing.Size(110, 32);
+            this.btnAddTiger.TabIndex = 18;
+            this.btnAddTiger.Text = "Lägg till tiger";
+            this.btnAddTiger.UseVisualStyleBackColor = true;
             // 
             // groupBoxTigerInfo
             // 
@@ -411,11 +436,30 @@
             this.btnAddMember.UseVisualStyleBackColor = true;
             this.btnAddMember.Click += new System.EventHandler(this.btnAddMember_Click);
             // 
+            // textBoxTigerID
+            // 
+            this.textBoxTigerID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tigersBindingSource, "Id", true));
+            this.textBoxTigerID.Location = new System.Drawing.Point(539, 377);
+            this.textBoxTigerID.Name = "textBoxTigerID";
+            this.textBoxTigerID.ReadOnly = true;
+            this.textBoxTigerID.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTigerID.TabIndex = 20;
+            // 
+            // textBoxMemberId
+            // 
+            this.textBoxMemberId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Id", true));
+            this.textBoxMemberId.Location = new System.Drawing.Point(419, 377);
+            this.textBoxMemberId.Name = "textBoxMemberId";
+            this.textBoxMemberId.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMemberId.TabIndex = 21;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 463);
+            this.Controls.Add(this.textBoxMemberId);
+            this.Controls.Add(this.textBoxTigerID);
             this.Controls.Add(this.btnAddMember);
             this.Controls.Add(this.lblNumberOfMembers);
             this.Controls.Add(this.groupBox1);
@@ -482,6 +526,10 @@
         private System.Windows.Forms.Label lblTigerGender;
         private System.Windows.Forms.GroupBox groupBoxTigerInfo;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnRemoveTiger;
+        private System.Windows.Forms.Button btnAddTiger;
+        private System.Windows.Forms.TextBox textBoxTigerID;
+        private System.Windows.Forms.TextBox textBoxMemberId;
     }
 }
 

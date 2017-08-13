@@ -28,8 +28,6 @@ namespace trf {
         
         private TigersDataTable tableTigers;
         
-        private global::System.Data.DataRelation relationFK_Tigers_Members;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -220,7 +218,6 @@ namespace trf {
                     this.tableTigers.InitVars();
                 }
             }
-            this.relationFK_Tigers_Members = this.Relations["FK_Tigers_Members"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -235,18 +232,6 @@ namespace trf {
             base.Tables.Add(this.tableMembers);
             this.tableTigers = new TigersDataTable();
             base.Tables.Add(this.tableTigers);
-            global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Tigers_Members", new global::System.Data.DataColumn[] {
-                        this.tableMembers.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTigers.OwnerIdColumn});
-            this.tableTigers.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationFK_Tigers_Members = new global::System.Data.DataRelation("FK_Tigers_Members", new global::System.Data.DataColumn[] {
-                        this.tableMembers.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTigers.OwnerIdColumn}, false);
-            this.Relations.Add(this.relationFK_Tigers_Members);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -802,17 +787,14 @@ namespace trf {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TigersRow AddTigersRow(string Name, string Type, MembersRow parentMembersRowByFK_Tigers_Members, string Gender) {
+            public TigersRow AddTigersRow(string Name, string Type, int OwnerId, string Gender) {
                 TigersRow rowTigersRow = ((TigersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Name,
                         Type,
-                        null,
+                        OwnerId,
                         Gender};
-                if ((parentMembersRowByFK_Tigers_Members != null)) {
-                    columnValuesArray[3] = parentMembersRowByFK_Tigers_Members[0];
-                }
                 rowTigersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTigersRow);
                 return rowTigersRow;
@@ -864,8 +846,6 @@ namespace trf {
                 base.Columns.Add(this.columnGender);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
-                                this.columnOwnerId}, false));
                 this.columnId.AutoIncrement = true;
                 this.columnId.AutoIncrementSeed = -1;
                 this.columnId.AutoIncrementStep = -1;
@@ -877,7 +857,6 @@ namespace trf {
                 this.columnType.AllowDBNull = false;
                 this.columnType.MaxLength = 20;
                 this.columnOwnerId.AllowDBNull = false;
-                this.columnOwnerId.Unique = true;
                 this.columnGender.MaxLength = 4;
             }
             
@@ -1163,17 +1142,6 @@ namespace trf {
             public void SetCityNull() {
                 this[this.tableMembers.CityColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TigersRow[] GetTigersRows() {
-                if ((this.Table.ChildRelations["FK_Tigers_Members"] == null)) {
-                    return new TigersRow[0];
-                }
-                else {
-                    return ((TigersRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Tigers_Members"])));
-                }
-            }
         }
         
         /// <summary>
@@ -1247,17 +1215,6 @@ namespace trf {
                 }
                 set {
                     this[this.tableTigers.GenderColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MembersRow MembersRow {
-                get {
-                    return ((MembersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Tigers_Members"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Tigers_Members"]);
                 }
             }
             
@@ -2107,7 +2064,7 @@ SELECT Id, Name, Type, OwnerId, Gender FROM Tigers WHERE (Id = @Id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, Name, Type, OwnerId, Gender FROM Tigers";
@@ -2119,9 +2076,14 @@ SELECT Id, Name, Type, OwnerId, Gender FROM Tigers WHERE (Id = @Id)";
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OwnerId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "OwnerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Name, Type, Gender FROM Tigers WHERE (OwnerId = @ownerid)";
+            this._commandCollection[2].CommandText = "DELETE FROM Tigers\r\nWHERE        (Id = @Original_Id)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ownerid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "OwnerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT * \r\nFROM Tigers \r\nWHERE (OwnerId = @ownerid)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ownerid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "OwnerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2153,7 +2115,7 @@ SELECT Id, Name, Type, OwnerId, Gender FROM Tigers WHERE (Id = @Id)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByOwnerID(MembersDataSet.TigersDataTable dataTable, int ownerid) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ownerid));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2167,7 +2129,7 @@ SELECT Id, Name, Type, OwnerId, Gender FROM Tigers WHERE (Id = @Id)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual MembersDataSet.TigersDataTable GetDataByOwnerID(int ownerid) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ownerid));
             MembersDataSet.TigersDataTable dataTable = new MembersDataSet.TigersDataTable();
             this.Adapter.Fill(dataTable);
@@ -2364,6 +2326,30 @@ SELECT Id, Name, Type, OwnerId, Gender FROM Tigers WHERE (Id = @Id)";
         public virtual int DeleteByOwnerID(int Original_OwnerId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             command.Parameters[0].Value = ((int)(Original_OwnerId));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteByTigerID(int Original_Id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((int)(Original_Id));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
