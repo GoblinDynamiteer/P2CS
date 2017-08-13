@@ -35,6 +35,8 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exporteraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verktygToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ändaLösenordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoOmTigrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +53,11 @@
             this.tigersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tigersListBox = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTigersOwned = new System.Windows.Forms.Label();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.lblStreet = new System.Windows.Forms.Label();
+            this.lblipCode = new System.Windows.Forms.Label();
+            this.lblCity = new System.Windows.Forms.Label();
             this.btnRemoveTiger = new System.Windows.Forms.Button();
             this.btnAddTiger = new System.Windows.Forms.Button();
             this.groupBoxTigerInfo = new System.Windows.Forms.GroupBox();
@@ -59,16 +66,11 @@
             this.lblTigerGender = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblCountry = new System.Windows.Forms.Label();
-            this.lblStreet = new System.Windows.Forms.Label();
-            this.lblipCode = new System.Windows.Forms.Label();
-            this.lblCity = new System.Windows.Forms.Label();
             this.lblNumberOfMembers = new System.Windows.Forms.Label();
             this.btnAddMember = new System.Windows.Forms.Button();
             this.textBoxTigerID = new System.Windows.Forms.TextBox();
             this.textBoxMemberId = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblTigersOwned = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataset)).BeginInit();
@@ -95,6 +97,7 @@
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.verktygToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -124,6 +127,21 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Avsluta";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // verktygToolStripMenuItem
+            // 
+            this.verktygToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ändaLösenordToolStripMenuItem});
+            this.verktygToolStripMenuItem.Name = "verktygToolStripMenuItem";
+            this.verktygToolStripMenuItem.Size = new System.Drawing.Size(58, 22);
+            this.verktygToolStripMenuItem.Text = "&Verktyg";
+            // 
+            // ändaLösenordToolStripMenuItem
+            // 
+            this.ändaLösenordToolStripMenuItem.Name = "ändaLösenordToolStripMenuItem";
+            this.ändaLösenordToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.ändaLösenordToolStripMenuItem.Text = "Ändra lösenord";
+            this.ändaLösenordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -266,6 +284,55 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Medlem";
             // 
+            // lblTigersOwned
+            // 
+            this.lblTigersOwned.AutoSize = true;
+            this.lblTigersOwned.Location = new System.Drawing.Point(13, 117);
+            this.lblTigersOwned.Name = "lblTigersOwned";
+            this.lblTigersOwned.Size = new System.Drawing.Size(70, 13);
+            this.lblTigersOwned.TabIndex = 10;
+            this.lblTigersOwned.Text = "Antal tigrar: X";
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Country", true));
+            this.lblCountry.Location = new System.Drawing.Point(13, 78);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(43, 13);
+            this.lblCountry.TabIndex = 0;
+            this.lblCountry.Text = "Country";
+            // 
+            // lblStreet
+            // 
+            this.lblStreet.AutoSize = true;
+            this.lblStreet.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Street", true));
+            this.lblStreet.Location = new System.Drawing.Point(13, 48);
+            this.lblStreet.Name = "lblStreet";
+            this.lblStreet.Size = new System.Drawing.Size(35, 13);
+            this.lblStreet.TabIndex = 0;
+            this.lblStreet.Text = "Street";
+            // 
+            // lblipCode
+            // 
+            this.lblipCode.AutoSize = true;
+            this.lblipCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "ZipCode", true));
+            this.lblipCode.Location = new System.Drawing.Point(13, 63);
+            this.lblipCode.Name = "lblipCode";
+            this.lblipCode.Size = new System.Drawing.Size(37, 13);
+            this.lblipCode.TabIndex = 0;
+            this.lblipCode.Text = "12345";
+            // 
+            // lblCity
+            // 
+            this.lblCity.AutoSize = true;
+            this.lblCity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "City", true));
+            this.lblCity.Location = new System.Drawing.Point(54, 63);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(24, 13);
+            this.lblCity.TabIndex = 0;
+            this.lblCity.Text = "City";
+            // 
             // btnRemoveTiger
             // 
             this.btnRemoveTiger.Location = new System.Drawing.Point(24, 266);
@@ -348,46 +415,6 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Typ:";
             // 
-            // lblCountry
-            // 
-            this.lblCountry.AutoSize = true;
-            this.lblCountry.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Country", true));
-            this.lblCountry.Location = new System.Drawing.Point(13, 78);
-            this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(43, 13);
-            this.lblCountry.TabIndex = 0;
-            this.lblCountry.Text = "Country";
-            // 
-            // lblStreet
-            // 
-            this.lblStreet.AutoSize = true;
-            this.lblStreet.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Street", true));
-            this.lblStreet.Location = new System.Drawing.Point(13, 48);
-            this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(35, 13);
-            this.lblStreet.TabIndex = 0;
-            this.lblStreet.Text = "Street";
-            // 
-            // lblipCode
-            // 
-            this.lblipCode.AutoSize = true;
-            this.lblipCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "ZipCode", true));
-            this.lblipCode.Location = new System.Drawing.Point(13, 63);
-            this.lblipCode.Name = "lblipCode";
-            this.lblipCode.Size = new System.Drawing.Size(37, 13);
-            this.lblipCode.TabIndex = 0;
-            this.lblipCode.Text = "12345";
-            // 
-            // lblCity
-            // 
-            this.lblCity.AutoSize = true;
-            this.lblCity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "City", true));
-            this.lblCity.Location = new System.Drawing.Point(54, 63);
-            this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(24, 13);
-            this.lblCity.TabIndex = 0;
-            this.lblCity.Text = "City";
-            // 
             // lblNumberOfMembers
             // 
             this.lblNumberOfMembers.AutoSize = true;
@@ -436,15 +463,6 @@
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tigrar";
-            // 
-            // lblTigersOwned
-            // 
-            this.lblTigersOwned.AutoSize = true;
-            this.lblTigersOwned.Location = new System.Drawing.Point(13, 117);
-            this.lblTigersOwned.Name = "lblTigersOwned";
-            this.lblTigersOwned.Size = new System.Drawing.Size(70, 13);
-            this.lblTigersOwned.TabIndex = 10;
-            this.lblTigersOwned.Text = "Antal tigrar: X";
             // 
             // frmMain
             // 
@@ -523,6 +541,8 @@
         private System.Windows.Forms.TextBox textBoxMemberId;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblTigersOwned;
+        private System.Windows.Forms.ToolStripMenuItem verktygToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ändaLösenordToolStripMenuItem;
     }
 }
 

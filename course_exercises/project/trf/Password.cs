@@ -34,10 +34,31 @@ namespace trf
             return r.Next(minKey, maxKey);
         }
 
-        public static bool LoadFromFile(string fileName, out int key, out string text)
+        /* Generera ett slumpmässigt lösenord */
+        public static string GenerateRandomPassword()
+        {
+            char[] p = new char[12];
+            Random r = new Random();
+
+            for (int i = 0; i < 4; i++)
+            {
+                p[i]    = (char)r.Next(97, (122 + 1));
+                p[i+4]  = (char)r.Next(48, (57 + 1));
+                p[i+8]  = (char)r.Next(65, (90 + 1));
+            }
+
+            return new string(p);
+        }
+
+        /* Laddar krypterat lösenord från angiven textfil, ger text och nyckel
+         * som "out"-parametrar. Ger sanningsvärde beroende på om filen gick
+         * att läsa in. */
+        public static bool LoadFromFile(
+            string fileName, out int key, out string text)
         {
             text = "";
             key = 0;
+            bool success = true;
 
             try
             {
@@ -45,20 +66,33 @@ namespace trf
                 text = file.ReadLine();
                 key = int.Parse(file.ReadLine());
             }
+
             catch
             {
-                return false;
+                success = false; // Misslyckad inläsning
             }
 
-            return true;
+            return success; 
         }
 
-        public static void SaveToFile(string fileName, string text, int key)
+        /* Sparar lösenord (redan krypterat) och nyckel till fil */
+        public static bool SaveToFile(string fileName, string text, int key)
         {
-            StreamWriter file = new StreamWriter(fileName);
-            file.WriteLine(text);
-            file.WriteLine(key);
-            file.Close();
+            bool success = true;
+
+            try
+            {
+                StreamWriter file = new StreamWriter(fileName);
+                file.WriteLine(text);
+                file.WriteLine(key);
+            }
+
+            catch
+            {
+                success = false;
+            }
+
+            return success;
         }
     }
 }

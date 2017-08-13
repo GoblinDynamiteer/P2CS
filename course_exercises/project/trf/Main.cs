@@ -5,18 +5,26 @@ namespace trf
 {
     public partial class frmMain : Form
     {
+        /* Forms/fönster */
         frmAddMember addMemberWindow;
         frmAddTiger addTigerWindow;
+        frmChangePassword changePasswordWindow;
+
+        /* Objekt */
         public Member member; 
         public Tiger tiger;
 
         string webpageUrlWikiTigers = 
             "http://sv.wikipedia.org/wiki/Tiger";
 
+        /* Konstruktor */
         public frmMain()
         {
             InitializeComponent();
-            this.Text = Program.name; // Fönstrets titel
+
+            /* Fönstrets titel */
+            this.Text = Program.name;
+
             member = new Member(
                 dataset, adapterMembers);
             tiger = new Tiger(dataset, adapterTigers);
@@ -206,6 +214,13 @@ namespace trf
         {
             UpdateDatabase();
             Program.QuitProgram();
+        }
+
+        /* Anropas när användaren trycker på menyn "Verktyg->Ändra lösenord" */
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changePasswordWindow = new frmChangePassword();
+            changePasswordWindow.Show();
         }
     }
 }

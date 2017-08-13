@@ -10,17 +10,14 @@ namespace trf
         int key;
         string password;
 
+        /* Konstruktor */
         public frmPassword()
         {
             InitializeComponent();
             this.Text = Program.name;
 
-            /* Genererade första lösenordet för programmet */
-            /*
-            key = Password.GenerateRandomKey(100, 300, new Random());
-            password = Password.EncryptText("TigrarÄger123!", key);
-            Password.SaveToFile(storedPasswordFile, password, key); */
-
+            /* Försöker ladda in lösenordet från lösenordsfilen,
+             * Vid misslyckande sätts lösenordet till standard */
             if (!Password.LoadFromFile(
                 storedPasswordFile, out key, out password))
             {
@@ -28,6 +25,7 @@ namespace trf
                 key = 0;
             }
         }
+
 
         private void btnPasswordOK_Click(object sender, EventArgs e)
         {
@@ -40,6 +38,7 @@ namespace trf
 
             else
             {
+                /* Vissar rött, elakt felmeddelande vid fel lösenordsinmatning */
                 lblPasswordInfo.ForeColor = System.Drawing.Color.DarkRed;
                 lblPasswordInfo.Text = "Fel lösenord!";
             }
