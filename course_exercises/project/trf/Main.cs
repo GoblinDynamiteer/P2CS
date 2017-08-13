@@ -6,6 +6,7 @@ namespace trf
     public partial class frmMain : Form
     {
         frmAddMember addMemberWindow;
+        frmAddTiger addTigerWindow;
         public Member member;
         Tiger tiger;
 
@@ -189,6 +190,14 @@ namespace trf
 
             tiger.RemoveByTigerID(tigerId);
             tiger.FillByMemberID(memberId);
+        }
+
+        private void btnAddTiger_Click(object sender, EventArgs e)
+        {
+            addTigerWindow = new frmAddTiger(this, GetSelectedMemberID());
+            addTigerWindow.Show();
+
+            //tiger.AddTiger("Kalle", "Bengalisk", true, GetSelectedMemberID());
         }
     }
 }

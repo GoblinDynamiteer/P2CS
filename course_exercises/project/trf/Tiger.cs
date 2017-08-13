@@ -35,5 +35,15 @@ namespace trf
         {
             adapter.DeleteByTigerID(tigerId);
         }
+
+        /* Lägg till en tiger till medlem */
+        public void AddTiger(
+            string name, string type, bool isMale, int memberId)
+        {
+            adapter.AddTiger(
+                name, type, memberId, isMale ? "Hane" : "Hona");
+
+            FillByMemberID(memberId);
+        }
     }
 }

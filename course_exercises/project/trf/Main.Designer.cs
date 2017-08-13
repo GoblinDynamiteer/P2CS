@@ -300,6 +300,7 @@
             this.btnAddTiger.TabIndex = 18;
             this.btnAddTiger.Text = "Lägg till tiger";
             this.btnAddTiger.UseVisualStyleBackColor = true;
+            this.btnAddTiger.Click += new System.EventHandler(this.btnAddTiger_Click);
             // 
             // groupBoxTigerInfo
             // 
