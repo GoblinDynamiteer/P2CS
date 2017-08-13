@@ -7,6 +7,7 @@ namespace trf
     {
         frmAddMember addMemberWindow;
         public Member member;
+        Tiger tiger;
 
         string webpageUrlWikiTigers = 
             "http://sv.wikipedia.org/wiki/Tiger";
@@ -19,6 +20,7 @@ namespace trf
             this.Text = Program.name; // Fönstrets titel
             member = new Member(
                 dataset, adapterMembers);
+            tiger = new Tiger(dataset, adapterTigers);
         }
 
         /* Hämta medlem-ID för den markerade medlemmen */
@@ -53,7 +55,8 @@ namespace trf
             try
             {
                 adapterMembers.Fill(dataset.Members);
-                UpdateTigerListBox();
+                tiger.FillByMemberID(GetSelectedMemberID());
+                //UpdateTigerListBox();
             }
 
             catch
@@ -83,10 +86,12 @@ namespace trf
         private void dataView_SelectionChanged(
             object sender, EventArgs e)
         {
-            UpdateTigerListBox();
+            int memberId = GetSelectedMemberID();
+            //UpdateTigerListBox();
+            tiger.FillByMemberID(memberId);
             lblCountry.Text = lblCountry.Text.ToUpper();
 
-            lblName.Text = member.GetName(GetSelectedMemberID());
+            lblName.Text = member.GetName(memberId);
         }
 
         /* Anropas när användaren trycker på knappen 'Radera medlem'  */
@@ -105,6 +110,7 @@ namespace trf
             /* Om användaren trycker på Ja */
             if (result == DialogResult.Yes)
             {
+                tiger.RemoveByMemberID(deleteID);
                 member.RemoveByID(deleteID);
 
                 UpdateDatabase();
