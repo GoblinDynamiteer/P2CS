@@ -10,6 +10,7 @@ namespace trf
             InitializeComponent();
         }
 
+
         private void checkBoxShowPassword_CheckedChanged(
             object sender, EventArgs e)
         {
@@ -19,12 +20,33 @@ namespace trf
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Close();
+            if (textBoxNewPassword.Text == "")
+            {
+                label1.Text = "Lösenordet får inte vara tomt!";
+            }
+
+            else
+            {
+                int key = Password.GenerateRandomKey();
+                string newPass = Password.EncryptText(textBoxNewPassword.Text, key);
+
+                if (Password.SaveToFile(Program.storedPasswordFile, newPass, key))
+                {
+                    MessageBox.Show("Lösenordet uppdaterades");
+                }
+
+                else
+                {
+                    MessageBox.Show("Sparning av nytt lösenord misslyckades!");
+                }
+
+                this.Close();
+            }
         }
 
         /* Generera slumpat lösenord och sätt i textrutan för

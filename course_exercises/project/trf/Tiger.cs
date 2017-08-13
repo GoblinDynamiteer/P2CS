@@ -26,7 +26,6 @@ namespace trf
          * som är markerad i medlemslistan */
         public void FillByMemberID(int memberId)
         {
-            adapter.ClearBeforeFill = true;
             adapter.FillByOwnerID(dataset.Tigers, memberId);
         }
 

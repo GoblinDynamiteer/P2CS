@@ -10,6 +10,7 @@ namespace trf
         /// </summary>
 
         public static string name = "TRF - Tigerälskarnas Riksförbund!";
+        public static string storedPasswordFile = "login.pwd";
 
         [STAThread]
         static void Main()

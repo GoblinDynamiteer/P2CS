@@ -28,10 +28,10 @@ namespace trf
         }
 
         /* Generera slumpad krypteringsnyckel */
-        public static int GenerateRandomKey(
-            int minKey, int maxKey, Random r)
+        public static int GenerateRandomKey()
         {
-            return r.Next(minKey, maxKey);
+            Random r = new Random();
+            return r.Next(100, 400);
         }
 
         /* Generera ett slumpmässigt lösenord */
@@ -65,6 +65,7 @@ namespace trf
                 StreamReader file = new StreamReader(fileName);
                 text = file.ReadLine();
                 key = int.Parse(file.ReadLine());
+                file.Close();
             }
 
             catch
@@ -82,9 +83,10 @@ namespace trf
 
             try
             {
-                StreamWriter file = new StreamWriter(fileName);
+                StreamWriter file = new StreamWriter(fileName, false);
                 file.WriteLine(text);
                 file.WriteLine(key);
+                file.Close();
             }
 
             catch

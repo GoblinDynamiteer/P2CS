@@ -5,7 +5,6 @@ namespace trf
 {
     public partial class frmPassword : Form
     {
-        string storedPasswordFile = "login.pwd";
         string defaultPassword = "123";
         int key;
         string password;
@@ -19,7 +18,7 @@ namespace trf
             /* Försöker ladda in lösenordet från lösenordsfilen,
              * Vid misslyckande sätts lösenordet till standard */
             if (!Password.LoadFromFile(
-                storedPasswordFile, out key, out password))
+                Program.storedPasswordFile, out key, out password))
             {
                 password = defaultPassword;
                 key = 0;
