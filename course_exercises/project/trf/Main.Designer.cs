@@ -71,6 +71,7 @@
             this.textBoxTigerID = new System.Windows.Forms.TextBox();
             this.textBoxMemberId = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnQuit = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataset)).BeginInit();
@@ -464,11 +465,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tigrar";
             // 
+            // btnQuit
+            // 
+            this.btnQuit.Location = new System.Drawing.Point(519, 360);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(110, 36);
+            this.btnQuit.TabIndex = 23;
+            this.btnQuit.Text = "Avsluta";
+            this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 423);
+            this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBoxMemberId);
             this.Controls.Add(this.textBoxTigerID);
@@ -481,6 +493,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
@@ -543,6 +556,7 @@
         private System.Windows.Forms.Label lblTigersOwned;
         private System.Windows.Forms.ToolStripMenuItem verktygToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ändaLösenordToolStripMenuItem;
+        private System.Windows.Forms.Button btnQuit;
     }
 }
 

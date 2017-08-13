@@ -8,6 +8,8 @@ namespace trf
         public frmChangePassword()
         {
             InitializeComponent();
+
+            this.Text = "Ändra lösenord";
         }
 
 
@@ -27,7 +29,8 @@ namespace trf
         {
             if (textBoxNewPassword.Text == "")
             {
-                label1.Text = "Lösenordet får inte vara tomt!";
+                lblPasswordInfo.ForeColor = System.Drawing.Color.DarkRed;
+                lblPasswordInfo.Text = "Lösenordet får inte vara tomt!";
             }
 
             else
