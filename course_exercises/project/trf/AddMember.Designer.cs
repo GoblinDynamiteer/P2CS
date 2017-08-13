@@ -42,9 +42,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxLastName = new System.Windows.Forms.TextBox();
             this.tableAddMember = new System.Windows.Forms.TableLayoutPanel();
+            this.errorIconFirstName = new System.Windows.Forms.PictureBox();
             this.textBoxCountry = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.errorIconFirstName = new System.Windows.Forms.PictureBox();
             this.errorIconLastName = new System.Windows.Forms.PictureBox();
             this.errorIconStreet = new System.Windows.Forms.PictureBox();
             this.errorIconZipCode = new System.Windows.Forms.PictureBox();
@@ -226,6 +226,17 @@
             this.tableAddMember.Size = new System.Drawing.Size(319, 188);
             this.tableAddMember.TabIndex = 1;
             // 
+            // errorIconFirstName
+            // 
+            this.errorIconFirstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.errorIconFirstName.Image = ((System.Drawing.Image)(resources.GetObject("errorIconFirstName.Image")));
+            this.errorIconFirstName.Location = new System.Drawing.Point(289, 5);
+            this.errorIconFirstName.Name = "errorIconFirstName";
+            this.errorIconFirstName.Size = new System.Drawing.Size(20, 20);
+            this.errorIconFirstName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.errorIconFirstName.TabIndex = 4;
+            this.errorIconFirstName.TabStop = false;
+            // 
             // textBoxCountry
             // 
             this.textBoxCountry.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -246,17 +257,6 @@
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 2;
             this.label6.Text = "Land";
-            // 
-            // errorIconFirstName
-            // 
-            this.errorIconFirstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.errorIconFirstName.Image = ((System.Drawing.Image)(resources.GetObject("errorIconFirstName.Image")));
-            this.errorIconFirstName.Location = new System.Drawing.Point(289, 5);
-            this.errorIconFirstName.Name = "errorIconFirstName";
-            this.errorIconFirstName.Size = new System.Drawing.Size(20, 20);
-            this.errorIconFirstName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.errorIconFirstName.TabIndex = 4;
-            this.errorIconFirstName.TabStop = false;
             // 
             // errorIconLastName
             // 
@@ -330,7 +330,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lägg till ny medlem";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.frmAddMember_Load);
             this.tableAddMember.ResumeLayout(false);
             this.tableAddMember.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorIconFirstName)).EndInit();

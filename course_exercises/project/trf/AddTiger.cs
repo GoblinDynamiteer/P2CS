@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace trf
@@ -54,6 +47,7 @@ namespace trf
         /* Anropas när användaren trycker på knappen 'Lägg till' */
         private void btnAddTiger_Click(object sender, EventArgs e)
         {
+            /* Visa felindikator vid namn-textrua om denna är tom */
             if (textBoxTigerName.Text == "")
             {
                 errorIconName.Visible = true;
@@ -70,6 +64,7 @@ namespace trf
                         ownerId
                     );
 
+                frmMain.UpdateLabelsAndButtons();
                 Close();
             }
 

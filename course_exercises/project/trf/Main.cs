@@ -27,17 +27,12 @@ namespace trf
         /* Hämta medlem-ID för den markerade medlemmen */
         public int GetSelectedMemberID()
         {
-            int id = 0;
-
-            /* Kör enbart en gång, då multi-select är satt 
-             * till false för DataGridView-kontrollen */
-            foreach (DataGridViewRow row in 
-                dataView.SelectedRows)
+            if (int.TryParse(textBoxMemberId.Text, out int memberID))
             {
-                id = int.Parse(row.Cells[0].Value.ToString());
+                return memberID;
             }
 
-            return id;
+            return 0;
         }
 
         /* Anropas när fönstret/from-kontrollen stängs */
@@ -52,6 +47,8 @@ namespace trf
         private void frmMain_Load(object sender, EventArgs e)
         {
             SetTooltips();
+            textBoxMemberId.Visible = false;
+            textBoxTigerID.Visible = false;
 
             try
             {
@@ -71,12 +68,7 @@ namespace trf
 
             finally
             {
-                UpdateMemberCountLabel();
-               
-                if (dataView.RowCount < 1)
-                {
-                    btnRemoveMember.Enabled = false;
-                }
+                UpdateLabelsAndButtons();
             }
 
         }
@@ -89,10 +81,7 @@ namespace trf
             int memberId = GetSelectedMemberID();
             tiger.FillByMemberID(memberId);
 
-            /* Sätter land i medlemmens adress till VERSAL */
-            lblCountry.Text = lblCountry.Text.ToUpper();
-
-            lblName.Text = member.GetName(memberId);
+            UpdateLabelsAndButtons();
         }
 
         /* Anropas när användaren trycker på knappen 'Radera medlem'  */
@@ -115,21 +104,32 @@ namespace trf
                 member.RemoveByID(deleteID);
 
                 UpdateDatabase();
-                UpdateMemberCountLabel();
-
-                if (dataView.RowCount < 1)
-                {
-                    btnRemoveMember.Enabled = false;
-                }
+                UpdateLabelsAndButtons();
             }
         }
 
-        /* Uppdaterar texten för antal medlemmar. */
-        public void UpdateMemberCountLabel()
+        /* Uppdaterar text på labels och knappar. */
+        public void UpdateLabelsAndButtons()
         {
-            /* Antal medlemmar hämtas från DataGridView-kontrollen */
+            /* Antal medlemmar */
             lblNumberOfMembers.Text = string.Format(
                 "Medlemmar: {0}", dataView.RowCount);
+
+            /* Antal ägda tigrar */
+            lblTigersOwned.Text = string.Format(
+                "Ägda tigrar: {0}", tigersListBox.Items.Count);
+
+            /* Sätter land i medlemmens adress till VERSAL */
+            lblCountry.Text = lblCountry.Text.ToUpper();
+
+            lblName.Text = member.GetName(GetSelectedMemberID());
+
+            btnRemoveMember.Enabled = dataView.RowCount < 1 ? false : true;
+            btnAddTiger.Enabled = dataView.RowCount < 1 ? false : true;
+            btnRemoveTiger.Enabled = 
+                (dataView.RowCount < 1 || tigersListBox.Items.Count < 1) ? 
+                false : true;
+
         }
 
         /* Anropas när användaren trycker på knappen 'Ny medlem'  */
@@ -141,6 +141,7 @@ namespace trf
             addMemberWindow.Show();
         }
 
+        /* Skriver till den faktiska databasen ? */
         public void UpdateDatabase()
         {
             try
@@ -149,7 +150,7 @@ namespace trf
                 membersBindingSource.EndEdit();
                 adapterMembers.Update(dataset.Members);
             }
-            catch (System.Exception ex)
+            catch
             {
                 MessageBox.Show("Update failed");
             }
@@ -191,8 +192,21 @@ namespace trf
             int tigerId = int.Parse(textBoxTigerID.Text);
             int memberId = GetSelectedMemberID();
 
-            tiger.RemoveByTigerID(tigerId);
-            tiger.FillByMemberID(memberId);
+            /* Visa dialogruta med knapparna Ja/Nej */
+            DialogResult result = MessageBox.Show(
+                "Är du säker på att du vill ta bort " 
+                    + tigersListBox.Text + " ?",
+                "Radera tiger",
+                MessageBoxButtons.YesNo
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                tiger.RemoveByTigerID(tigerId);
+                tiger.FillByMemberID(memberId);
+                UpdateLabelsAndButtons();
+            }
+            
         }
 
         /* Anropas när användaren trycker på knappen "Lägg till tiger" */
@@ -200,6 +214,12 @@ namespace trf
         {
             addTigerWindow = new frmAddTiger(this, GetSelectedMemberID());
             addTigerWindow.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateDatabase();
+            Program.QuitProgram();
         }
     }
 }
