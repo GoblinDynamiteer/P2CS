@@ -12,8 +12,6 @@ namespace trf
 
         string webpageUrlWikiTigers = 
             "http://sv.wikipedia.org/wiki/Tiger";
-        string toolTipTigerInfo = "Markera en tiger i listan " +
-            "för att se info.";
 
         public frmMain()
         {
@@ -46,7 +44,6 @@ namespace trf
         /* Anropas när fönstret/from-kontrollen startas */
         private void frmMain_Load(object sender, EventArgs e)
         {
-            SetTooltips();
             textBoxMemberId.Visible = false;
             textBoxTigerID.Visible = false;
 
@@ -152,7 +149,7 @@ namespace trf
             }
             catch
             {
-                MessageBox.Show("Update failed");
+                MessageBox.Show("Databasuppdatering misslyckades");
             }
         }
 
@@ -173,17 +170,6 @@ namespace trf
                 System.Diagnostics.Process.Start(
                     webpageUrlWikiTigers);
             }
-        }
-
-        /* Sätter diverse tooltips för kontroller i formen */
-        void SetTooltips()
-        {
-            ToolTip tigersTooltip = new ToolTip();
-
-            tigersTooltip.SetToolTip(
-                tigersListBox, toolTipTigerInfo);
-            tigersTooltip.SetToolTip(
-                groupBoxTigerInfo, toolTipTigerInfo);
         }
 
         /* Anropas när användaren trycker på knappen "Ta bort tiger" */

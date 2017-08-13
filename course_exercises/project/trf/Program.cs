@@ -10,7 +10,6 @@ namespace trf
         /// </summary>
 
         public static string name = "TRF - Tigerälskarnas Riksförbund!";
-        public static Password pw = new Password(Password.GenerateRandomEncryptionKey());
 
         [STAThread]
         static void Main()

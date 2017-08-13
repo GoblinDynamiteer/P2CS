@@ -1,17 +1,10 @@
 ﻿using System;
+using System.IO;
 
 namespace trf
 {
     class Password
     {
-        int encryptionKey;
-        static int maxKey = 400, minKey = 100;
-
-        public Password(int encryptionKey)
-        {
-            this.encryptionKey = encryptionKey;
-        }
-
         /* Kryptera text med angiven krypteringsnyckel */
         public static string EncryptText(string text, int key)
         {
@@ -35,10 +28,37 @@ namespace trf
         }
 
         /* Generera slumpad krypteringsnyckel */
-        public static int GenerateRandomEncryptionKey()
+        public static int GenerateRandomKey(
+            int minKey, int maxKey, Random r)
         {
-            Random r = new Random();
             return r.Next(minKey, maxKey);
+        }
+
+        public static bool LoadFromFile(string fileName, out int key, out string text)
+        {
+            text = "";
+            key = 0;
+
+            try
+            {
+                StreamReader file = new StreamReader(fileName);
+                text = file.ReadLine();
+                key = int.Parse(file.ReadLine());
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static void SaveToFile(string fileName, string text, int key)
+        {
+            StreamWriter file = new StreamWriter(fileName);
+            file.WriteLine(text);
+            file.WriteLine(key);
+            file.Close();
         }
     }
 }

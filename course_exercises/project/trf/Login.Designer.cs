@@ -29,34 +29,37 @@
         private void InitializeComponent()
         {
             this.btnPasswordOK = new System.Windows.Forms.Button();
-            this.textBoxEnterPassword = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lblPasswordInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnPasswordOK
             // 
-            this.btnPasswordOK.Location = new System.Drawing.Point(30, 120);
+            this.btnPasswordOK.Location = new System.Drawing.Point(15, 62);
+            this.btnPasswordOK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPasswordOK.Name = "btnPasswordOK";
-            this.btnPasswordOK.Size = new System.Drawing.Size(250, 80);
+            this.btnPasswordOK.Size = new System.Drawing.Size(125, 42);
             this.btnPasswordOK.TabIndex = 0;
             this.btnPasswordOK.Text = "OK";
             this.btnPasswordOK.UseVisualStyleBackColor = true;
             this.btnPasswordOK.Click += new System.EventHandler(this.btnPasswordOK_Click);
             // 
-            // textBoxEnterPassword
+            // textBoxPassword
             // 
-            this.textBoxEnterPassword.Location = new System.Drawing.Point(30, 65);
-            this.textBoxEnterPassword.Name = "textBoxEnterPassword";
-            this.textBoxEnterPassword.PasswordChar = '*';
-            this.textBoxEnterPassword.Size = new System.Drawing.Size(520, 31);
-            this.textBoxEnterPassword.TabIndex = 1;
+            this.textBoxPassword.Location = new System.Drawing.Point(15, 34);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.Size = new System.Drawing.Size(262, 20);
+            this.textBoxPassword.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(299, 120);
+            this.button1.Location = new System.Drawing.Point(150, 62);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(250, 80);
+            this.button1.Size = new System.Drawing.Size(125, 42);
             this.button1.TabIndex = 2;
             this.button1.Text = "Avsluta";
             this.button1.UseVisualStyleBackColor = true;
@@ -65,22 +68,24 @@
             // lblPasswordInfo
             // 
             this.lblPasswordInfo.AutoSize = true;
-            this.lblPasswordInfo.Location = new System.Drawing.Point(30, 30);
+            this.lblPasswordInfo.Location = new System.Drawing.Point(15, 16);
+            this.lblPasswordInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPasswordInfo.Name = "lblPasswordInfo";
-            this.lblPasswordInfo.Size = new System.Drawing.Size(392, 25);
+            this.lblPasswordInfo.Size = new System.Drawing.Size(192, 13);
             this.lblPasswordInfo.TabIndex = 3;
             this.lblPasswordInfo.Text = "Ange lösenord för att starta programmet";
             // 
             // frmPassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 229);
+            this.ClientSize = new System.Drawing.Size(287, 119);
             this.Controls.Add(this.lblPasswordInfo);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBoxEnterPassword);
+            this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.btnPasswordOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPassword";
@@ -97,7 +102,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnPasswordOK;
-        private System.Windows.Forms.TextBox textBoxEnterPassword;
+        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblPasswordInfo;
     }
