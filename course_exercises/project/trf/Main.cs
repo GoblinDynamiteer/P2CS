@@ -7,8 +7,8 @@ namespace trf
     {
         frmAddMember addMemberWindow;
         frmAddTiger addTigerWindow;
-        public Member member;
-        Tiger tiger;
+        public Member member; 
+        public Tiger tiger;
 
         string webpageUrlWikiTigers = 
             "http://sv.wikipedia.org/wiki/Tiger";
@@ -88,6 +88,8 @@ namespace trf
         {
             int memberId = GetSelectedMemberID();
             tiger.FillByMemberID(memberId);
+
+            /* Sätter land i medlemmens adress till VERSAL */
             lblCountry.Text = lblCountry.Text.ToUpper();
 
             lblName.Text = member.GetName(memberId);
@@ -183,6 +185,7 @@ namespace trf
                 groupBoxTigerInfo, toolTipTigerInfo);
         }
 
+        /* Anropas när användaren trycker på knappen "Ta bort tiger" */
         private void btnRemoveTiger_Click(object sender, EventArgs e)
         {
             int tigerId = int.Parse(textBoxTigerID.Text);
@@ -192,12 +195,11 @@ namespace trf
             tiger.FillByMemberID(memberId);
         }
 
+        /* Anropas när användaren trycker på knappen "Lägg till tiger" */
         private void btnAddTiger_Click(object sender, EventArgs e)
         {
             addTigerWindow = new frmAddTiger(this, GetSelectedMemberID());
             addTigerWindow.Show();
-
-            //tiger.AddTiger("Kalle", "Bengalisk", true, GetSelectedMemberID());
         }
     }
 }

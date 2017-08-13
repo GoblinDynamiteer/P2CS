@@ -2,7 +2,7 @@
 
 namespace trf
 {
-    class Tiger
+    public class Tiger
     {
         MembersDataSet dataset;
         TigersTableAdapter adapter;
