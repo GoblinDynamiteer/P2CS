@@ -80,6 +80,19 @@ namespace trf
             adapter.Fill(dataset.Members);
         }
 
+        public void SearchAll(string text)
+        {
+            if (text == "")
+            {
+                adapter.Fill(dataset.Members);
+            }
+
+            else
+            {
+                adapter.FillBySearchAll(dataset.Members, text);
+            }
+        }
+
     }
 
 }

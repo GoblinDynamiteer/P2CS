@@ -72,6 +72,8 @@
             this.textBoxMemberId = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnQuit = new System.Windows.Forms.Button();
+            this.textBoxFilter = new System.Windows.Forms.TextBox();
+            this.lblFilter = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataset)).BeginInit();
@@ -119,13 +121,13 @@
             // exporteraToolStripMenuItem
             // 
             this.exporteraToolStripMenuItem.Name = "exporteraToolStripMenuItem";
-            this.exporteraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exporteraToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.exporteraToolStripMenuItem.Text = "Exportera";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.exitToolStripMenuItem.Text = "Avsluta";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -438,7 +440,7 @@
             // textBoxTigerID
             // 
             this.textBoxTigerID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tigersBindingSource, "Id", true));
-            this.textBoxTigerID.Location = new System.Drawing.Point(152, 369);
+            this.textBoxTigerID.Location = new System.Drawing.Point(364, 369);
             this.textBoxTigerID.Name = "textBoxTigerID";
             this.textBoxTigerID.ReadOnly = true;
             this.textBoxTigerID.Size = new System.Drawing.Size(100, 20);
@@ -447,7 +449,7 @@
             // textBoxMemberId
             // 
             this.textBoxMemberId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Id", true));
-            this.textBoxMemberId.Location = new System.Drawing.Point(258, 369);
+            this.textBoxMemberId.Location = new System.Drawing.Point(364, 395);
             this.textBoxMemberId.Name = "textBoxMemberId";
             this.textBoxMemberId.Size = new System.Drawing.Size(100, 20);
             this.textBoxMemberId.TabIndex = 21;
@@ -475,11 +477,31 @@
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // textBoxFilter
+            // 
+            this.textBoxFilter.Location = new System.Drawing.Point(136, 385);
+            this.textBoxFilter.Name = "textBoxFilter";
+            this.textBoxFilter.Size = new System.Drawing.Size(120, 20);
+            this.textBoxFilter.TabIndex = 24;
+            this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
+            this.textBoxFilter.DoubleClick += new System.EventHandler(this.textBoxFilter_DoubleClick);
+            // 
+            // lblFilter
+            // 
+            this.lblFilter.AutoSize = true;
+            this.lblFilter.Location = new System.Drawing.Point(134, 370);
+            this.lblFilter.Name = "lblFilter";
+            this.lblFilter.Size = new System.Drawing.Size(45, 13);
+            this.lblFilter.TabIndex = 25;
+            this.lblFilter.Text = "Sökfilter";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 423);
+            this.Controls.Add(this.lblFilter);
+            this.Controls.Add(this.textBoxFilter);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBoxMemberId);
@@ -533,9 +555,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        public MembersDataSet dataset;
-        public System.Windows.Forms.BindingSource membersBindingSource;
-        public MembersDataSetTableAdapters.MembersTableAdapter adapterMembers;
+        private MembersDataSet dataset;
+        private System.Windows.Forms.BindingSource membersBindingSource;
+        private MembersDataSetTableAdapters.MembersTableAdapter adapterMembers;
         private System.Windows.Forms.Label lblNumberOfMembers;
         private System.Windows.Forms.Button btnAddMember;
         private System.Windows.Forms.Label lblCity;
@@ -557,6 +579,8 @@
         private System.Windows.Forms.ToolStripMenuItem verktygToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ändaLösenordToolStripMenuItem;
         private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.TextBox textBoxFilter;
+        private System.Windows.Forms.Label lblFilter;
     }
 }
 

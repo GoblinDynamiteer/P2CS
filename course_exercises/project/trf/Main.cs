@@ -222,5 +222,17 @@ namespace trf
             changePasswordWindow = new frmChangePassword();
             changePasswordWindow.Show();
         }
+
+        /* Anropas när text ändras i sökfilter-rutan */
+        private void textBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            member.SearchAll(textBoxFilter.Text);
+        }
+
+        /* Anropas när användaren dubbelklickar på sökfilter-rutan */
+        private void textBoxFilter_DoubleClick(object sender, EventArgs e)
+        {
+            textBoxFilter.Text = ""; // Rensa filter
+        }
     }
 }
