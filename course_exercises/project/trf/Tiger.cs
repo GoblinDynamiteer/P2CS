@@ -15,7 +15,7 @@ namespace trf
             this.adapter = adapter;
         }
 
-        /* Radera tigrar som tillhör medlem */
+        /* Radera alla tigrar som tillhör medlem */
         public void RemoveByMemberID(int memberId)
         {
             adapter.DeleteByOwnerID(memberId);

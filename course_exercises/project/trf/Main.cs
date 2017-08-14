@@ -129,6 +129,7 @@ namespace trf
 
             lblName.Text = member.GetName(GetSelectedMemberID());
 
+            /* Styr om det går att klicka på diverse knappar */
             btnRemoveMember.Enabled = dataView.RowCount < 1 ? false : true;
             btnAddTiger.Enabled = dataView.RowCount < 1 ? false : true;
             btnRemoveTiger.Enabled = 
