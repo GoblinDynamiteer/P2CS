@@ -324,6 +324,8 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tableAddMember);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddMember";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.ShowIcon = false;
