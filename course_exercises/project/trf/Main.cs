@@ -63,12 +63,15 @@ namespace trf
 
             catch
             {
-                MessageBox.Show("Fel vid inläsning av databas.",
-                    "Fel!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation,
-                    MessageBoxDefaultButton.Button1
+                MessageBox.Show("Se till att filen Members.mdf finns! " +
+                    "Programmet kommer att avsluta.",
+                        "Fel vid inläsning av databas!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Exclamation,
+                        MessageBoxDefaultButton.Button1
                 );
+
+                Program.QuitProgram();
             }
 
             finally
@@ -121,7 +124,7 @@ namespace trf
             lblNumberOfMembers.Text = string.Format(
                 "Medlemmar: {0} {1}", dataView.RowCount, 
                     textBoxFilter.Text == "" ? 
-                        " ( Alla )" : " ( Filter ) ");
+                        "" : " ( Filter ) ");
 
             /* Antal ägda tigrar */
             lblTigersOwned.Text = string.Format(
