@@ -116,9 +116,12 @@ namespace trf
         /* Uppdaterar text på labels och knappar. */
         public void UpdateLabelsAndButtons()
         {
-            /* Antal medlemmar */
+            /* Antal medlemmar som visas i medlemslista. 
+             * Alla eller med filter applicerat */
             lblNumberOfMembers.Text = string.Format(
-                "Medlemmar: {0}", dataView.RowCount);
+                "Medlemmar: {0} {1}", dataView.RowCount, 
+                    textBoxFilter.Text == "" ? 
+                        " ( Alla )" : " ( Filter ) ");
 
             /* Antal ägda tigrar */
             lblTigersOwned.Text = string.Format(
@@ -228,6 +231,7 @@ namespace trf
         private void textBoxFilter_TextChanged(object sender, EventArgs e)
         {
             member.SearchAll(textBoxFilter.Text);
+            UpdateLabelsAndButtons();
         }
 
         /* Anropas när användaren dubbelklickar på sökfilter-rutan */
