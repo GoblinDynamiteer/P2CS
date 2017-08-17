@@ -15,6 +15,8 @@ namespace trf
             InitializeComponent();
             this.Text = Program.name;
 
+            textBoxPassword.Select();
+
             /* Försöker ladda in lösenordet från lösenordsfilen,
              * Vid misslyckande sätts lösenordet till standard */
             if (!Password.LoadFromFile(
@@ -40,6 +42,8 @@ namespace trf
                 /* Vissar rött, elakt felmeddelande vid fel lösenordsinmatning */
                 lblPasswordInfo.ForeColor = System.Drawing.Color.DarkRed;
                 lblPasswordInfo.Text = "Fel lösenord!";
+
+                textBoxPassword.Select();
             }
         }
 
