@@ -1,4 +1,5 @@
-﻿using trf.MembersDataSetTableAdapters;
+﻿using System.IO;
+using trf.MembersDataSetTableAdapters;
 
 namespace trf
 {
@@ -21,7 +22,7 @@ namespace trf
             adapter.Fill(dataset.Members);
         }
 
-        /* Ger en medlems fulla namn */
+        /* Ger en medlems fulla namn (förnamn + efternamn) */
         public string GetName(int memberId)
         {
             int index = GetRowIndex(memberId);
@@ -59,13 +60,50 @@ namespace trf
 
                 catch
                 {
-                    //BYGG
                 }
 
             }
 
             return -1; // Om medlems-ID inte hittades
 
+        }
+
+        public bool Export(string filename)
+        {
+            adapter.Fill(dataset.Members);
+            int memberCount = dataset.Members.Rows.Count;
+
+            string[] name = new string[memberCount];
+            string[] surname = new string[memberCount];
+            string[] city = new string[memberCount];
+            string[] street = new string[memberCount];
+            string[] zipcode = new string[memberCount];
+            string[] country = new string[memberCount];
+
+            for (int i = 0; i < memberCount; i++)
+            {
+                name[i] = dataset.Members.Rows[i]["FirstName"].ToString();
+                surname[i] = dataset.Members.Rows[i]["LastName"].ToString();
+                city[i] = dataset.Members.Rows[i]["City"].ToString();
+                street[i] = dataset.Members.Rows[i]["Street"].ToString();
+                zipcode[i] = dataset.Members.Rows[i]["ZipCode"].ToString();
+                country[i] = dataset.Members.Rows[i]["Country"].ToString();
+            }
+
+            StreamWriter file = new StreamWriter(filename, false);
+
+            for (int i = 0; i < memberCount; i++)
+            {
+                file.WriteLine(name[i] + " " + surname[i]);
+                file.WriteLine(street[i]);
+                file.WriteLine(zipcode[i] + " " + city[i]);
+                file.WriteLine(country[i].ToUpper());
+                file.WriteLine("-----------------------------------");
+                
+            }
+
+            file.Close();
+            return true;
         }
 
         /* Lägger till medlem */
@@ -80,16 +118,19 @@ namespace trf
             adapter.Fill(dataset.Members);
         }
 
+        /* Söker i medlemmar, fyller dataset efter resultat */
         public void SearchAll(string text)
         {
-            if (text == "")
+            if (text == "") // Om söksträng är tom
             {
                 adapter.Fill(dataset.Members);
             }
 
             else
             {
-                adapter.FillBySearchAll(dataset.Members, text);
+                int zipSearch = 0; // För sökning i postnummer, int
+                int.TryParse(text, out zipSearch);
+                adapter.FillBySearchAll(dataset.Members, text, zipSearch);
             }
         }
 

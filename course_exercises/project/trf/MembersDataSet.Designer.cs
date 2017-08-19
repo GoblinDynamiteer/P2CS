@@ -1510,9 +1510,11 @@ WHERE        (FirstName LIKE '%' + @search + '%') OR
                          (LastName LIKE '%' + @search + '%') OR
                          (Country LIKE '%' + @search + '%') OR
                          (Street LIKE '%' + @search + '%') OR
-                         (City LIKE '%' + @search + '%')";
+                         (City LIKE '%' + @search + '%') OR
+                         (ZipCode = @searchInt)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@search", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@searchInt", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ZipCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "dbo.InsertQuery";
@@ -1554,7 +1556,7 @@ WHERE        (FirstName LIKE '%' + @search + '%') OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBySearchAll(MembersDataSet.MembersDataTable dataTable, string search) {
+        public virtual int FillBySearchAll(MembersDataSet.MembersDataTable dataTable, string search, int searchInt) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((search == null)) {
                 throw new global::System.ArgumentNullException("search");
@@ -1562,6 +1564,7 @@ WHERE        (FirstName LIKE '%' + @search + '%') OR
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(search));
             }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(searchInt));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1573,7 +1576,7 @@ WHERE        (FirstName LIKE '%' + @search + '%') OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MembersDataSet.MembersDataTable GetDataBySearchAll(string search) {
+        public virtual MembersDataSet.MembersDataTable GetDataBySearchAll(string search, int searchInt) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((search == null)) {
                 throw new global::System.ArgumentNullException("search");
@@ -1581,6 +1584,7 @@ WHERE        (FirstName LIKE '%' + @search + '%') OR
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(search));
             }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(searchInt));
             MembersDataSet.MembersDataTable dataTable = new MembersDataSet.MembersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

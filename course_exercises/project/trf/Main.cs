@@ -242,5 +242,24 @@ namespace trf
         {
             textBoxFilter.Text = ""; // Rensa filter
         }
+
+        /* Anropas när använderen trycker på menyn "Fil->Exportera" */
+        private void exporteraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /* "Spara fil"-fönster */
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+            saveFileDialog.Filter = "txt files (*.txt)|*.txt";
+            saveFileDialog.Title = "Exportera medlemslista till textfil";
+            saveFileDialog.FilterIndex = 1;
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.FileName = "memberlist.txt";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                member.Export(saveFileDialog.FileName);
+            }
+
+        }
     }
 }

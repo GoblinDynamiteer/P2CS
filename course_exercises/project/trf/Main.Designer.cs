@@ -121,13 +121,14 @@
             // exporteraToolStripMenuItem
             // 
             this.exporteraToolStripMenuItem.Name = "exporteraToolStripMenuItem";
-            this.exporteraToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.exporteraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exporteraToolStripMenuItem.Text = "Exportera";
+            this.exporteraToolStripMenuItem.Click += new System.EventHandler(this.exporteraToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Avsluta";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
