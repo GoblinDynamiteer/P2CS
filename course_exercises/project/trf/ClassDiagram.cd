@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="trf.AboutBox">
+    <Position X="10.25" Y="0.75" Width="2" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="labelCompanyName" Hidden="true" />
+      <Field Name="labelCopyright" Hidden="true" />
+      <Field Name="labelProductName" Hidden="true" />
+      <Field Name="labelVersion" Hidden="true" />
+      <Field Name="logoPictureBox" Hidden="true" />
+      <Field Name="okButton" Hidden="true" />
+      <Field Name="tableLayoutPanel" Hidden="true" />
+      <Field Name="textBoxDescription" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gAACAAAAACAgAAUAAACAAAACAAAAEIAAAAAAAAAAAAA=</HashCode>
+      <FileName>AboutBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="trf.frmAddMember">
+    <Position X="10.25" Y="2.25" Width="2" />
+    <Members>
+      <Field Name="btnAdd" Hidden="true" />
+      <Field Name="btnCancel" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="errorIconCity" Hidden="true" />
+      <Field Name="errorIconCountry" Hidden="true" />
+      <Field Name="errorIconFirstName" Hidden="true" />
+      <Field Name="errorIconLastName" Hidden="true" />
+      <Field Name="errorIconStreet" Hidden="true" />
+      <Field Name="errorIconZipCode" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="label6" Hidden="true" />
+      <Field Name="tableAddMember" Hidden="true" />
+      <Field Name="textBoxCity" Hidden="true" />
+      <Field Name="textBoxCountry" Hidden="true" />
+      <Field Name="textBoxFirstName" Hidden="true" />
+      <Field Name="textBoxLastName" Hidden="true" />
+      <Field Name="textBoxStreet" Hidden="true" />
+      <Field Name="textBoxZipCode" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAKCCABGAAAGAAEBCAAACwBBMACAAAAAAAAI=</HashCode>
+      <FileName>AddMember.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="trf.frmAddTiger">
+    <Position X="10" Y="6.75" Width="3" />
+    <Members>
+      <Field Name="btnAddTiger" Hidden="true" />
+      <Field Name="btnCancel" Hidden="true" />
+      <Field Name="comboBoxTigerType" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="errorIconName" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="lblGender" Hidden="true" />
+      <Field Name="lblType" Hidden="true" />
+      <Field Name="radioButtonFemale" Hidden="true" />
+      <Field Name="radioButtonMale" Hidden="true" />
+      <Field Name="textBoxTigerName" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>BAggAAAABCAAAJEAAACAAECCAAAAZAAAEAAAAAAAACA=</HashCode>
+      <FileName>AddTiger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="trf.Tiger">
+    <Position X="3.5" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAACAAACACAAAAAAAAQAAAAAAAAAgAA=</HashCode>
+      <FileName>Tiger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="trf.Password">
+    <Position X="0.5" Y="6" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AACAEAAgAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAEAA=</HashCode>
+      <FileName>Password.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="trf.Program">
+    <Position X="0.5" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAQAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="trf.frmPassword">
+    <Position X="0.5" Y="3" Width="2.75" />
+    <Members>
+      <Field Name="btnExit" Hidden="true" />
+      <Field Name="btnPasswordOK" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="lblPasswordInfo" Hidden="true" />
+      <Field Name="textBoxPassword" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAECAIADAAAACEEAACACAAAAAAARAAAgAAAAA=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="trf.frmMain">
+    <Position X="3.5" Y="0.75" Width="4.75" />
+    <Members>
+      <Field Name="aboutToolStripMenuItem" Hidden="true" />
+      <Field Name="adapterMembers" Hidden="true" />
+      <Field Name="adapterTigers" Hidden="true" />
+      <Field Name="btnAddMember" Hidden="true" />
+      <Field Name="btnAddTiger" Hidden="true" />
+      <Field Name="btnQuit" Hidden="true" />
+      <Field Name="btnRemoveMember" Hidden="true" />
+      <Field Name="btnRemoveTiger" Hidden="true" />
+      <Field Name="Column1" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dataGridViewTextBoxColumn2" Hidden="true" />
+      <Field Name="dataGridViewTextBoxColumn3" Hidden="true" />
+      <Field Name="dataset" Hidden="true" />
+      <Field Name="dataView" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="exitToolStripMenuItem" Hidden="true" />
+      <Field Name="exporteraToolStripMenuItem" Hidden="true" />
+      <Field Name="fileToolStripMenuItem" Hidden="true" />
+      <Field Name="groupBox1" Hidden="true" />
+      <Field Name="groupBox2" Hidden="true" />
+      <Field Name="groupBoxTigerInfo" Hidden="true" />
+      <Field Name="helpToolStripMenuItem" Hidden="true" />
+      <Field Name="infoOmTigrarToolStripMenuItem" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="lblCity" Hidden="true" />
+      <Field Name="lblCountry" Hidden="true" />
+      <Field Name="lblFilter" Hidden="true" />
+      <Field Name="lblipCode" Hidden="true" />
+      <Field Name="lblName" Hidden="true" />
+      <Field Name="lblNumberOfMembers" Hidden="true" />
+      <Field Name="lblStreet" Hidden="true" />
+      <Field Name="lblTigerGender" Hidden="true" />
+      <Field Name="lblTigerName" Hidden="true" />
+      <Field Name="lblTigersOwned" Hidden="true" />
+      <Field Name="lblType" Hidden="true" />
+      <Field Name="membersBindingSource" Hidden="true" />
+      <Field Name="menuStrip" Hidden="true" />
+      <Field Name="tableAdapterManager" Hidden="true" />
+      <Field Name="textBoxFilter" Hidden="true" />
+      <Field Name="textBoxMemberId" Hidden="true" />
+      <Field Name="textBoxTigerID" Hidden="true" />
+      <Field Name="tigersBindingSource" Hidden="true" />
+      <Field Name="tigersListBox" Hidden="true" />
+      <Field Name="verktygToolStripMenuItem" Hidden="true" />
+      <Field Name="ändaLösenordToolStripMenuItem" Hidden="true" />
+    </Members>
+    <AssociationLine Name="addTigerWindow" Type="trf.frmAddTiger" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.688" Y="5.704" />
+        <Point X="7.688" Y="6.844" />
+        <Point X="10" Y="6.844" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>BaSABIBAlKEIIBCLAAmLAgQGCAwhAgSIGmTAsI1ABCQ=</HashCode>
+      <FileName>Main.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="tiger" />
+      <Field Name="member" />
+      <Field Name="aboutWindow" />
+      <Field Name="addMemberWindow" />
+      <Field Name="changePasswordWindow" />
+      <Field Name="addTigerWindow" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="trf.Member">
+    <Position X="6" Y="7" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAACAAICBAAAAAAAAAAAAAABAAAABAI=</HashCode>
+      <FileName>Member.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="trf.frmChangePassword">
+    <Position X="10.25" Y="4.5" Width="3.5" />
+    <Members>
+      <Field Name="btnCancel" Hidden="true" />
+      <Field Name="btnGenerateRandomPassword" Hidden="true" />
+      <Field Name="btnOk" Hidden="true" />
+      <Field Name="checkBoxShowPassword" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="lblPasswordInfo" Hidden="true" />
+      <Field Name="textBoxNewPassword" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAACAAACEQAACAAMACAAAABAAAAQAAAAAAAEI=</HashCode>
+      <FileName>ChangePassword.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="trf.MembersDataSetTableAdapters.MembersTableAdapter">
+    <Position X="15.75" Y="0.75" Width="3" />
+    <Members>
+      <Field Name="_adapter" Hidden="true" />
+      <Field Name="_clearBeforeFill" Hidden="true" />
+      <Field Name="_commandCollection" Hidden="true" />
+      <Field Name="_connection" Hidden="true" />
+      <Field Name="_transaction" Hidden="true" />
+      <Property Name="Adapter" Hidden="true" />
+      <Property Name="ClearBeforeFill" Hidden="true" />
+      <Property Name="CommandCollection" Hidden="true" />
+      <Property Name="Connection" Hidden="true" />
+      <Method Name="InitAdapter" Hidden="true" />
+      <Method Name="InitCommandCollection" Hidden="true" />
+      <Method Name="InitConnection" Hidden="true" />
+      <Method Name="MembersTableAdapter" Hidden="true" />
+      <Property Name="Transaction" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>EAyAAGAAEAAAEAcAIgAAAAAAACEICAgACAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="trf.MembersDataSetTableAdapters.TigersTableAdapter">
+    <Position X="12.75" Y="0.75" Width="2.75" />
+    <Members>
+      <Field Name="_adapter" Hidden="true" />
+      <Field Name="_clearBeforeFill" Hidden="true" />
+      <Field Name="_commandCollection" Hidden="true" />
+      <Field Name="_connection" Hidden="true" />
+      <Field Name="_transaction" Hidden="true" />
+      <Property Name="Adapter" Hidden="true" />
+      <Property Name="ClearBeforeFill" Hidden="true" />
+      <Property Name="CommandCollection" Hidden="true" />
+      <Property Name="Connection" Hidden="true" />
+      <Method Name="InitAdapter" Hidden="true" />
+      <Method Name="InitCommandCollection" Hidden="true" />
+      <Method Name="InitConnection" Hidden="true" />
+      <Method Name="TigersTableAdapter" Hidden="true" />
+      <Property Name="Transaction" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAECcAIAAAAAAAACEICAAAAAAAAgAAhBE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
