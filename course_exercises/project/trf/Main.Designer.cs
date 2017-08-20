@@ -121,16 +121,16 @@
             // exporteraToolStripMenuItem
             // 
             this.exporteraToolStripMenuItem.Name = "exporteraToolStripMenuItem";
-            this.exporteraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exporteraToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.exporteraToolStripMenuItem.Text = "Exportera";
             this.exporteraToolStripMenuItem.Click += new System.EventHandler(this.exporteraToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.exitToolStripMenuItem.Text = "Avsluta";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.quitProgram);
             // 
             // verktygToolStripMenuItem
             // 
@@ -161,6 +161,7 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.aboutToolStripMenuItem.Text = "&Om programmet";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // infoOmTigrarToolStripMenuItem
             // 
@@ -476,7 +477,7 @@
             this.btnQuit.TabIndex = 23;
             this.btnQuit.Text = "Avsluta";
             this.btnQuit.UseVisualStyleBackColor = true;
-            this.btnQuit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.btnQuit.Click += new System.EventHandler(this.quitProgram);
             // 
             // textBoxFilter
             // 

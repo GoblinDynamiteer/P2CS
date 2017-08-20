@@ -68,9 +68,13 @@ namespace trf
 
         }
 
+        /* Exportera medlemsdata till textfil */
         public bool Export(string filename)
         {
             adapter.Fill(dataset.Members);
+            bool success = true;
+
+            /* Antal medlemmar i databasen */
             int memberCount = dataset.Members.Rows.Count;
 
             string[] name = new string[memberCount];
@@ -90,20 +94,28 @@ namespace trf
                 country[i] = dataset.Members.Rows[i]["Country"].ToString();
             }
 
-            StreamWriter file = new StreamWriter(filename, false);
-
-            for (int i = 0; i < memberCount; i++)
+            try
             {
-                file.WriteLine(name[i] + " " + surname[i]);
-                file.WriteLine(street[i]);
-                file.WriteLine(zipcode[i] + " " + city[i]);
-                file.WriteLine(country[i].ToUpper());
-                file.WriteLine("-----------------------------------");
-                
+                StreamWriter file = new StreamWriter(filename, false);
+
+                for (int i = 0; i < memberCount; i++)
+                {
+                    file.WriteLine(name[i] + " " + surname[i]);
+                    file.WriteLine(street[i]);
+                    file.WriteLine(zipcode[i] + " " + city[i]);
+                    file.WriteLine(country[i].ToUpper());
+                    file.WriteLine("------------------------------");
+                }
+
+                file.Close();
             }
 
-            file.Close();
-            return true;
+            catch
+            {
+                success = false;
+            }
+
+            return success;
         }
 
         /* Lägger till medlem */
