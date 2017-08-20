@@ -215,7 +215,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="trf.MembersDataSetTableAdapters.MembersTableAdapter">
-    <Position X="11.75" Y="3.5" Width="3" />
+    <Position X="15.5" Y="0.5" Width="3" />
     <Members>
       <Field Name="_adapter" Hidden="true" />
       <Field Name="_clearBeforeFill" Hidden="true" />
@@ -238,7 +238,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="trf.MembersDataSetTableAdapters.TigersTableAdapter">
-    <Position X="11.75" Y="0.5" Width="2.75" />
+    <Position X="12.5" Y="0.5" Width="2.75" />
     <Members>
       <Field Name="_adapter" Hidden="true" />
       <Field Name="_clearBeforeFill" Hidden="true" />
