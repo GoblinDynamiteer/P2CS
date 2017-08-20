@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="trf.AboutBox">
-    <Position X="10.25" Y="0.75" Width="2" />
+    <Position X="8.25" Y="3" Width="2" />
     <Members>
       <Field Name="components" Hidden="true" />
       <Method Name="Dispose" Hidden="true" />
@@ -21,7 +21,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="trf.frmAddMember">
-    <Position X="10.25" Y="2.25" Width="2" />
+    <Position X="8.25" Y="4.5" Width="2" />
     <Members>
       <Field Name="btnAdd" Hidden="true" />
       <Field Name="btnCancel" Hidden="true" />
@@ -54,7 +54,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="trf.frmAddTiger">
-    <Position X="10" Y="6.75" Width="3" />
+    <Position X="8.25" Y="9" Width="3" />
     <Members>
       <Field Name="btnAddTiger" Hidden="true" />
       <Field Name="btnCancel" Hidden="true" />
@@ -76,28 +76,31 @@
     </TypeIdentifier>
   </Class>
   <Class Name="trf.Tiger">
-    <Position X="3.5" Y="7" Width="2.25" />
+    <Position X="1.5" Y="9.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAACAAACACAAAAAAAAQAAAAAAAAAgAA=</HashCode>
       <FileName>Tiger.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="trf.Password">
-    <Position X="0.5" Y="6" Width="2.75" />
+    <Position X="8.25" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AACAEAAgAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAEAA=</HashCode>
       <FileName>Password.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="trf.Program">
-    <Position X="0.5" Y="0.75" Width="2.75" />
+    <Position X="0.5" Y="1" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAQAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAQEABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="passwordWindow" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="trf.frmPassword">
-    <Position X="0.5" Y="3" Width="2.75" />
+    <Position X="4.75" Y="0.5" Width="2.75" />
     <Members>
       <Field Name="btnExit" Hidden="true" />
       <Field Name="btnPasswordOK" Hidden="true" />
@@ -108,12 +111,15 @@
       <Field Name="textBoxPassword" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAECAIADAAAACEEAACACAAAAAAARAAAgAAAAA=</HashCode>
+      <HashCode>AAAAAAAAECAIADAAAACEEAACBCAAAAAAARAAAgAAAAA=</HashCode>
       <FileName>Login.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mainWindow" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="trf.frmMain">
-    <Position X="3.5" Y="0.75" Width="4.75" />
+    <Position X="1.5" Y="3.75" Width="4.75" />
     <Members>
       <Field Name="aboutToolStripMenuItem" Hidden="true" />
       <Field Name="adapterMembers" Hidden="true" />
@@ -165,9 +171,9 @@
     </Members>
     <AssociationLine Name="addTigerWindow" Type="trf.frmAddTiger" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="7.688" Y="5.704" />
-        <Point X="7.688" Y="6.844" />
-        <Point X="10" Y="6.844" />
+        <Point X="5.688" Y="8.704" />
+        <Point X="5.688" Y="9.094" />
+        <Point X="8.25" Y="9.094" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -175,23 +181,23 @@
       <FileName>Main.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="tiger" />
-      <Field Name="member" />
-      <Field Name="aboutWindow" />
       <Field Name="addMemberWindow" />
-      <Field Name="changePasswordWindow" />
       <Field Name="addTigerWindow" />
+      <Field Name="changePasswordWindow" />
+      <Field Name="aboutWindow" />
+      <Field Name="member" />
+      <Field Name="tiger" />
     </ShowAsAssociation>
   </Class>
   <Class Name="trf.Member">
-    <Position X="6" Y="7" Width="2.5" />
+    <Position X="4" Y="9.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAACAAICBAAAAAAAAAAAAAABAAAABAI=</HashCode>
       <FileName>Member.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="trf.frmChangePassword">
-    <Position X="10.25" Y="4.5" Width="3.5" />
+    <Position X="8.25" Y="6.75" Width="3.5" />
     <Members>
       <Field Name="btnCancel" Hidden="true" />
       <Field Name="btnGenerateRandomPassword" Hidden="true" />
@@ -209,7 +215,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="trf.MembersDataSetTableAdapters.MembersTableAdapter">
-    <Position X="15.75" Y="0.75" Width="3" />
+    <Position X="11.75" Y="3.5" Width="3" />
     <Members>
       <Field Name="_adapter" Hidden="true" />
       <Field Name="_clearBeforeFill" Hidden="true" />
@@ -232,7 +238,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="trf.MembersDataSetTableAdapters.TigersTableAdapter">
-    <Position X="12.75" Y="0.75" Width="2.75" />
+    <Position X="11.75" Y="0.5" Width="2.75" />
     <Members>
       <Field Name="_adapter" Hidden="true" />
       <Field Name="_clearBeforeFill" Hidden="true" />

@@ -8,6 +8,7 @@ namespace trf
         string defaultPassword = "123";
         int key;
         string password;
+        frmMain mainWindow;
 
         /* Konstruktor */
         public frmPassword()
@@ -32,7 +33,7 @@ namespace trf
         {
             if (textBoxPassword.Text == Password.DecryptText(password, key))
             {
-                frmMain mainWindow = new frmMain();
+                mainWindow = new frmMain();
                 mainWindow.Show();
                 this.Visible = false;
             }

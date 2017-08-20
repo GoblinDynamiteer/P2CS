@@ -11,6 +11,7 @@ namespace trf
 
         public static string name = "TRF - Tigerälskarnas Riksförbund!";
         public static string storedPasswordFile = "login.pwd";
+        public static frmPassword passwordWindow;
 
         [STAThread]
         static void Main()
@@ -18,7 +19,7 @@ namespace trf
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            frmPassword passwordWindow = new frmPassword();
+            passwordWindow = new frmPassword();
             passwordWindow.Show();
 
             Application.Run();
