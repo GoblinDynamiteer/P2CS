@@ -68,8 +68,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblNumberOfMembers = new System.Windows.Forms.Label();
             this.btnAddMember = new System.Windows.Forms.Button();
-            this.textBoxTigerID = new System.Windows.Forms.TextBox();
-            this.textBoxMemberId = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnQuit = new System.Windows.Forms.Button();
             this.textBoxFilter = new System.Windows.Forms.TextBox();
@@ -439,23 +437,6 @@
             this.btnAddMember.UseVisualStyleBackColor = true;
             this.btnAddMember.Click += new System.EventHandler(this.btnAddMember_Click);
             // 
-            // textBoxTigerID
-            // 
-            this.textBoxTigerID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tigersBindingSource, "Id", true));
-            this.textBoxTigerID.Location = new System.Drawing.Point(364, 369);
-            this.textBoxTigerID.Name = "textBoxTigerID";
-            this.textBoxTigerID.ReadOnly = true;
-            this.textBoxTigerID.Size = new System.Drawing.Size(100, 20);
-            this.textBoxTigerID.TabIndex = 20;
-            // 
-            // textBoxMemberId
-            // 
-            this.textBoxMemberId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.membersBindingSource, "Id", true));
-            this.textBoxMemberId.Location = new System.Drawing.Point(364, 395);
-            this.textBoxMemberId.Name = "textBoxMemberId";
-            this.textBoxMemberId.Size = new System.Drawing.Size(100, 20);
-            this.textBoxMemberId.TabIndex = 21;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tigersListBox);
@@ -506,8 +487,6 @@
             this.Controls.Add(this.textBoxFilter);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.textBoxMemberId);
-            this.Controls.Add(this.textBoxTigerID);
             this.Controls.Add(this.btnAddMember);
             this.Controls.Add(this.lblNumberOfMembers);
             this.Controls.Add(this.groupBox1);
@@ -574,8 +553,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnRemoveTiger;
         private System.Windows.Forms.Button btnAddTiger;
-        private System.Windows.Forms.TextBox textBoxTigerID;
-        private System.Windows.Forms.TextBox textBoxMemberId;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblTigersOwned;
         private System.Windows.Forms.ToolStripMenuItem verktygToolStripMenuItem;

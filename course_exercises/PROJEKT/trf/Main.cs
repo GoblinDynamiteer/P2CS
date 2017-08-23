@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace trf
@@ -34,10 +35,6 @@ namespace trf
         /* Anropas när fönstret/from-kontrollen startas */
         private void frmMain_Load(object sender, EventArgs e)
         {
-            /* Göm textrutor för användaren */
-            textBoxMemberId.Visible = false;
-            textBoxTigerID.Visible = false;
-
             /* Fyll dataset med adapters */
             try
             {
@@ -63,12 +60,49 @@ namespace trf
 
         }
 
-        /* Hämta medlem-ID för den markerade medlemmen */
+        /* Hämta medlem-ID för den markerade/aktuella 
+         * medlemmen */
         public int GetSelectedMemberID()
         {
-            if (int.TryParse(textBoxMemberId.Text, out int memberID))
+            string rowID = "";
+
+            try
+            {
+                rowID = ((DataRowView)membersBindingSource.Current).
+                    Row["Id"].ToString();
+            }
+
+            catch
+            {
+            }
+
+            if (int.TryParse(rowID, out int memberID))
             {
                 return memberID;
+            }
+
+            return 0; // Om parse av text misslyckas
+        }
+
+        /* Hämta tiger-ID för den markerade/aktuella
+         * tigern */
+        public int GetSelectedTigerID()
+        {
+            string rowID = "";
+
+            try
+            {
+                rowID = ((DataRowView)tigersBindingSource.Current).
+                    Row["Id"].ToString();
+            }
+
+            catch
+            {
+            }
+
+            if (int.TryParse(rowID, out int tigerID))
+            {
+                return tigerID;
             }
 
             return 0; // Om parse av text misslyckas
@@ -199,7 +233,7 @@ namespace trf
         /* Knapp "Ta bort tiger" */
         private void btnRemoveTiger_Click(object sender, EventArgs e)
         {
-            int tigerId = int.Parse(textBoxTigerID.Text);
+            int tigerId = GetSelectedTigerID();
             int memberId = GetSelectedMemberID();
 
             /* Visa dialogruta med knapparna Ja/Nej */
