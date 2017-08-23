@@ -56,6 +56,7 @@
             // 
             // btnExit
             // 
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Location = new System.Drawing.Point(150, 62);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
@@ -77,8 +78,10 @@
             // 
             // frmPassword
             // 
+            this.AcceptButton = this.btnPasswordOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(287, 119);
             this.Controls.Add(this.lblPasswordInfo);
             this.Controls.Add(this.btnExit);
