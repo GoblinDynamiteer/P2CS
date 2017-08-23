@@ -9,14 +9,12 @@ namespace trf
         frmAddMember addMemberWindow;
         frmAddTiger addTigerWindow;
         frmChangePassword changePasswordWindow;
+        frmWebBrowser webBrowserWindow;
         AboutBox aboutWindow;
 
         /* Objekt */
         public Member member; 
         public Tiger tiger;
-
-        string webpageUrlWikiTigers = 
-            "http://sv.wikipedia.org/wiki/Tiger";
 
         /* Konstruktor */
         public frmMain()
@@ -274,8 +272,10 @@ namespace trf
 
             if (result == DialogResult.Yes)
             {
-                System.Diagnostics.Process.Start(
-                    webpageUrlWikiTigers);
+                // System.Diagnostics.Process.Start(
+                //    webpageUrlWikiTigers);
+                webBrowserWindow = new frmWebBrowser();
+                webBrowserWindow.Show();
             }
         }
 
