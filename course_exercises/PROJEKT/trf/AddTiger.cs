@@ -18,6 +18,7 @@ namespace trf
 
             comboBoxTigerType.SelectedIndex = 0;
             errorIconName.Visible = false;
+            textBoxTigerName.Select();
 
             /* Fönstertitel */
             this.Text = "Lägg till tiger till " +

@@ -72,7 +72,7 @@
             // textBoxTigerName
             // 
             this.textBoxTigerName.Location = new System.Drawing.Point(64, 28);
-            this.textBoxTigerName.MaxLength = 30;
+            this.textBoxTigerName.MaxLength = 20;
             this.textBoxTigerName.Name = "textBoxTigerName";
             this.textBoxTigerName.Size = new System.Drawing.Size(121, 20);
             this.textBoxTigerName.TabIndex = 5;
