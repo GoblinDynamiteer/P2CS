@@ -10,10 +10,10 @@ Exercises from the book "Programmering 2 med C#" and exercises from the course.
 Memberlist of tiger owners stored in external database
 
 Main window!  
-![manwindow](https://raw.githubusercontent.com/GoblinDynamiteer/P2CS/master/course_exercises/project/images/screenshots/main_window.PNG)
+![manwindow](https://raw.githubusercontent.com/GoblinDynamiteer/P2CS/master/course_exercises/RAPPORT/images/screenshots/main_window.PNG)
 
 Password protection!  
-![login](https://raw.githubusercontent.com/GoblinDynamiteer/P2CS/master/course_exercises/project/images/screenshots/login_prompt.PNG)
+![login](https://raw.githubusercontent.com/GoblinDynamiteer/P2CS/master/course_exercises/RAPPORT/images/screenshots/login_prompt.PNG)
 
 Add tiger!  
-![login](https://raw.githubusercontent.com/GoblinDynamiteer/P2CS/master/course_exercises/project/images/screenshots/add_tiger.PNG)
+![login](https://raw.githubusercontent.com/GoblinDynamiteer/P2CS/master/course_exercises/RAPPORT/images/screenshots/add_tiger.PNG)
