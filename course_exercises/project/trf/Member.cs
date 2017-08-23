@@ -8,6 +8,7 @@ namespace trf
         MembersDataSet dataset;
         MembersTableAdapter adapter;
 
+        /* Konstruktor */
         public Member(MembersDataSet dataset, 
                       MembersTableAdapter adapter)
         {
@@ -15,7 +16,7 @@ namespace trf
             this.adapter = adapter;
         }
 
-        /* Radera medlem */
+        /* Radera medlem med ID */
         public void RemoveByID(int memberId)
         {
             adapter.DeleteQuery(memberId);
@@ -71,12 +72,14 @@ namespace trf
         /* Exportera medlemsdata till textfil */
         public bool Export(string filename)
         {
+            /* Fyll dataset med alla medlemmar */
             adapter.Fill(dataset.Members);
             bool success = true;
 
             /* Antal medlemmar i databasen */
             int memberCount = dataset.Members.Rows.Count;
 
+            /* String arrayer för hållande av medlemsdata */
             string[] name = new string[memberCount];
             string[] surname = new string[memberCount];
             string[] city = new string[memberCount];
@@ -84,17 +87,18 @@ namespace trf
             string[] zipcode = new string[memberCount];
             string[] country = new string[memberCount];
 
+            /* Sätt dataset data till string-arrayer */
             for (int i = 0; i < memberCount; i++)
             {
-                name[i] = dataset.Members.Rows[i]["FirstName"].ToString();
+                name[i] =    dataset.Members.Rows[i]["FirstName"].ToString();
                 surname[i] = dataset.Members.Rows[i]["LastName"].ToString();
-                city[i] = dataset.Members.Rows[i]["City"].ToString();
-                street[i] = dataset.Members.Rows[i]["Street"].ToString();
+                city[i] =    dataset.Members.Rows[i]["City"].ToString();
+                street[i] =  dataset.Members.Rows[i]["Street"].ToString();
                 zipcode[i] = dataset.Members.Rows[i]["ZipCode"].ToString();
                 country[i] = dataset.Members.Rows[i]["Country"].ToString();
             }
 
-            try
+            try // Skriv medlemsdata till textfil, från string-arrayer
             {
                 StreamWriter file = new StreamWriter(filename, false);
 
@@ -107,12 +111,12 @@ namespace trf
                     file.WriteLine("------------------------------");
                 }
 
-                file.Close();
+                file.Close(); // Stäng StreamWriter
             }
 
             catch
             {
-                success = false;
+                success = false; // Misslyckad skrivning till fil
             }
 
             return success;

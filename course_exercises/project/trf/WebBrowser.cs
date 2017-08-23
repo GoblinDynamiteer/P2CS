@@ -8,12 +8,16 @@ namespace trf
         string webpageUrlWikiTigers =
             "http://sv.wikipedia.org/wiki/Tiger";
 
+        /* Konstruktor */
         public frmWebBrowser()
         {
             InitializeComponent();
+
+            /* Navigera till webaddress */
             webBrowser.Navigate(webpageUrlWikiTigers);
 
-            this.Text = "TRF: " + webpageUrlWikiTigers;
+            /* Titel på formen / fönstret */
+            this.Text = "TRF WebBrowser - " + webpageUrlWikiTigers;
         }
     }
 }

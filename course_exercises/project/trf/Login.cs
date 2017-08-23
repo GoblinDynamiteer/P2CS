@@ -8,15 +8,16 @@ namespace trf
         string defaultPassword = "123";
         int key;
         string password;
-        frmMain mainWindow;
+
+        frmMain mainWindow; // Programmets huvudfönster
 
         /* Konstruktor */
         public frmPassword()
         {
             InitializeComponent();
-            this.Text = Program.name;
+            this.Text = Program.name; // Titel
 
-            textBoxPassword.Select();
+            textBoxPassword.Select(); // Sätt markör i textrutan
 
             /* Försöker ladda in lösenordet från lösenordsfilen,
              * Vid misslyckande sätts lösenordet till standard */
@@ -28,19 +29,21 @@ namespace trf
             }
         }
 
-
+        /* Event-metod för "OK"-knappen */
         private void btnPasswordOK_Click(object sender, EventArgs e)
         {
-            if (textBoxPassword.Text == Password.DecryptText(password, key))
+            /* Om inskrivet lösenord stämmer */
+            if (textBoxPassword.Text == 
+                Password.DecryptText(password, key))
             {
                 mainWindow = new frmMain();
-                mainWindow.Show();
-                this.Visible = false;
+                mainWindow.Show();    // Visa huvudfönster
+                this.Visible = false; // Göm inloggningsrutan
             }
 
-            else
+            else // Fel lösenord inskrivet
             {
-                /* Vissar rött, elakt felmeddelande vid fel lösenordsinmatning */
+                /* Visar mörkrött felmeddelande */
                 lblPasswordInfo.ForeColor = System.Drawing.Color.DarkRed;
                 lblPasswordInfo.Text = "Fel lösenord!";
 
@@ -48,14 +51,17 @@ namespace trf
             }
         }
 
+        /* Event-metod för "Avsluta"-knappen */
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Program.QuitProgram();
+            Program.QuitProgram(); // Stäng av programmet
         }
 
-        private void frmPassword_FormClosed(object sender, FormClosedEventArgs e)
+        /* Event-metod för "Krysset"-knappen */
+        private void frmPassword_FormClosed(
+            object sender, FormClosedEventArgs e)
         {
-            Program.QuitProgram();
+            Program.QuitProgram(); // Stäng av programmet
         }
     }
 }

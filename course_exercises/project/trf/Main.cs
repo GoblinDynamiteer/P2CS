@@ -12,7 +12,6 @@ namespace trf
         frmWebBrowser webBrowserWindow;
         AboutBox aboutWindow;
 
-        /* Objekt */
         public Member member; 
         public Tiger tiger;
 
@@ -21,43 +20,46 @@ namespace trf
         {
             InitializeComponent();
 
-            /* Fönstrets titel */
-            this.Text = Program.name;
+            this.Text = Program.name; // Titel
 
+            /* Skapa Member- och Tiger-objekt. Skicka med 
+             * referenser till dataset och adapter för databasen */
             member = new Member(
                 dataset, adapterMembers);
-            tiger = new Tiger(dataset, adapterTigers);
+
+            tiger = new Tiger(
+                dataset, adapterTigers);
         }
 
         /* Anropas när fönstret/from-kontrollen startas */
         private void frmMain_Load(object sender, EventArgs e)
         {
+            /* Göm textrutor för användaren */
             textBoxMemberId.Visible = false;
             textBoxTigerID.Visible = false;
 
+            /* Fyll dataset med adapters */
             try
             {
                 adapterMembers.Fill(dataset.Members);
                 tiger.FillByMemberID(GetSelectedMemberID());
             }
 
-            catch
+            catch // Databasfel
             {
+                /* Meddelanderuta */
                 MessageBox.Show("Se till att filen Members.mdf finns! " +
-                    "Programmet kommer att avsluta.",
-                        "Fel vid inläsning av databas!",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Exclamation,
-                        MessageBoxDefaultButton.Button1
+                    "Programmet kommer att avsluta.",    // Text
+                        "Fel vid inläsning av databas!", // Titel
+                        MessageBoxButtons.OK,            // Knappar
+                        MessageBoxIcon.Exclamation,      // Ikon
+                        MessageBoxDefaultButton.Button1  // Markerad knapp
                 );
 
-                Program.QuitProgram();
+                Program.QuitProgram(); // Stäng av programmet
             }
 
-            finally
-            {
-                UpdateLabelsAndButtons();
-            }
+            UpdateLabelsAndButtons();
 
         }
 
@@ -69,7 +71,7 @@ namespace trf
                 return memberID;
             }
 
-            return 0;
+            return 0; // Om parse av text misslyckas
         }
 
         /* Uppdaterar text på labels och knappar. */
@@ -80,7 +82,7 @@ namespace trf
             lblNumberOfMembers.Text = string.Format(
                 "Medlemmar: {0} {1}", dataView.RowCount,
                     textBoxFilter.Text == "" ?
-                        "" : " ( Filter ) ");
+                        "" : " ( Filter ) "); // ( Filter) vid filtrerad lista
 
             /* Antal ägda tigrar */
             lblTigersOwned.Text = string.Format(
@@ -100,7 +102,7 @@ namespace trf
 
         }
 
-        /* Anropas när fönstret/from-kontrollen stängs */
+        /* Anropas när fönstret/form-kontrollen stängs */
         private void frmMain_FormClosing(
             object sender, FormClosingEventArgs e)
         {
